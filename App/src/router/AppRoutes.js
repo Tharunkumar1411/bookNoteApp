@@ -11,6 +11,7 @@ const AppRoutes = () => {
         <Routes>
             <Route element={<Layout />}>
                 <Route path={ROUTES.HOME} element={<Application />}/>
+
             </Route>
             {/* <Route path="*" element={<Navigate to={ROUTES.HOME} />} /> */}
         </Routes>

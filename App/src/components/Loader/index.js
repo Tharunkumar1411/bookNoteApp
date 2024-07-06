@@ -1,7 +1,8 @@
 import CircularProgress from "@mui/material/CircularProgress";
 // import styles from "./styles.module.scss";
 
-const Loader = () => {
+const Loader = () => {       
+        
     return(
         <div>
             <CircularProgress color="inherit" />

@@ -1,7 +1,10 @@
+import styles from "./styles.module.scss" 
 
 const NavBar = () => {
     return(
-        <div style={{color:"black"}}>navbar</div>
+        <div className={styles.navRootContainer}>
+            <Hamburger toggled={isOpen} size={20} toggle={setOpen} />
+        </div>
     )
 }
 

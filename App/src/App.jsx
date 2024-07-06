@@ -1,6 +1,4 @@
 import React, { Suspense } from "react";
-
-import "./index.css";
 import { ToastContainer, Slide } from "react-toastify";
 import { HashRouter } from "react-router-dom";
 import AppRoutes from "./router/AppRoutes";

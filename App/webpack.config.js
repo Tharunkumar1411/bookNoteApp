@@ -1,14 +1,16 @@
+/* eslint-disable no-undef */
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
-module.exports = (_, argv) => ({
+
+module.exports = () => ({
   output: {
     publicPath: "http://localhost:8081/",
   },
 
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json", ".scss"],
   },
 
   devServer: {
@@ -26,14 +28,8 @@ module.exports = (_, argv) => ({
         },
       },
       {
-        test: /\.scss$/,
-        use: [
-          "sass-loader"
-        ]
-      },
-      {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -50,7 +46,7 @@ module.exports = (_, argv) => ({
       name: "App",
       filename: "remoteEntry.js",
       remotes: {
-        "home": "home@http://localhost:8080/home-app.js",
+        home: "home@http://localhost:8080/home-app.js",
       },
       exposes: {},
       shared: {
@@ -68,6 +64,6 @@ module.exports = (_, argv) => ({
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
 });
