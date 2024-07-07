@@ -1,0 +1,1 @@
+export const NavItems = ["New Drops 🔥", "Men", "Women"]

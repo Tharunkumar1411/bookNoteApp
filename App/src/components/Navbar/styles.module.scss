@@ -1,5 +1,69 @@
-.navRootContainer{border-radius: 24px;
+@import "../../styles/mixins.scss";
+
+.navRootContainer{
+    border-radius: 24px;
     background: #FAFAFA;
     border-radius: 24px;
-    padding: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    align-items: center;
 }
+
+.logo{
+   margin-left: auto;
+   margin-right: auto
+}
+
+.navMenuItems{
+    @include flexRow;
+    gap: 40px;
+}
+
+.navProfileItems{
+    @include flexRow;
+    gap: 40px;
+    margin-left: auto;
+}
+
+@media (max-width: 480px){
+    .navProfileItems{
+        gap: 9px;
+    }
+}
+
+
+.rootMenuContainer{
+    margin-top: 20px;
+    margin-right: auto;
+}
+
+.menuOption{
+   font-family: RubikSemiBold !important;
+}
+
+.dropMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dropOption{
+    border: 1px solid #E7E7E3;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.animatedContainer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 1.25rem;
+    padding-top: 0;
+    background-color: #E7E7E3;
+    // box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+  
