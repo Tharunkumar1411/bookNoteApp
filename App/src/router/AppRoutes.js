@@ -1,12 +1,20 @@
-import { Suspense } from "react"
-import { Route, Routes } from "react-router-dom"
+import { Suspense, useEffect } from "react"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import Layout from "./Layout";
 import { ROUTES } from "./routes";
 import Loader from "../components/Loader";
 import Application from "../pages/Application";
 import Register from "../pages/Register";
 
-const AppRoutes = () => {
+const AppRoutes = ({TOKEN}) => {
+    const nav = useNavigate();
+
+    useEffect(() => {
+        if(!TOKEN){
+            nav(`/register`)
+        }
+    },[]);
+    
     return(
        <Suspense fallback={<Loader />}>
         <Routes>

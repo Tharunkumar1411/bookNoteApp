@@ -1,15 +1,16 @@
-import { Outlet } from "react-router-dom"
+import { Navigate, Outlet } from "react-router-dom"
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { ROUTES } from "./routes";
 
-const Layout = ({token}) => {
-    return !token ? (    
+const Layout = () => {
+    return (    
         <div>
             <NavBar />
             <Outlet />
             <Footer />
         </div>
-    ) : <Navigate />
+    )
 }
 
 export default Layout;

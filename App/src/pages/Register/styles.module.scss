@@ -103,6 +103,10 @@
                 background: var(--Dark-Gray, #232321);
                 color: #FFFFFF;
                 cursor: pointer;
+
+                .circleLoader{
+                    color: #FFFFFF;
+                }
             }
         }
     }

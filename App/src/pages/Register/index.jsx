@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControl, FormControlLabel, FormHelperText, OutlinedInput, Typography } from "@mui/material";
+import { Box, Checkbox, CircularProgress, FormControl, FormControlLabel, FormHelperText, OutlinedInput, Typography } from "@mui/material";
 import styles from "./styles.module.scss"
 import { Formik } from "formik";
 import GoogleImg from "../../assets/images/GoogleIcon.svg"
@@ -7,8 +7,11 @@ import FbImg from "../../assets/images/FaceBookIcon.svg"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { GENDERS, REGISTER_DETAILS, allowAlphabets } from "../../utils/constants";
 import JoinCard from "../../components/JoinCard";
+import { handleAppleAuth, handleFbAuth, handleGoogleAuth } from "../../utils/auth";
+import { useState } from "react";
 
 function Register(){
+    const [loading, setLoading] = useState(false);
 
     const nameValidation = (value = "") => {
         return allowAlphabets(value);
@@ -25,9 +28,9 @@ function Register(){
                 </div>
 
                 <div className={styles.socialContainer}>
-                    <img src={GoogleImg} alt="google" className={styles.socialBtn}/>
-                    <img src={AppleImg} alt="google" className={styles.socialBtn}/>
-                    <img src={FbImg} alt="google" className={styles.socialBtn}/>
+                    <img src={GoogleImg} alt="google" className={styles.socialBtn} onClick={handleGoogleAuth}/>
+                    <img src={AppleImg} alt="google" className={styles.socialBtn} onClick={handleAppleAuth}/>
+                    <img src={FbImg} alt="google" className={styles.socialBtn} onClick={handleFbAuth}/>
                 </div>
 
                 <Typography className={styles.orTxt}>OR</Typography>
@@ -66,9 +69,6 @@ function Register(){
                                         maxLength: "26",
                                     }}
                                 />
-                                {/* <FormHelperText className={styles.error}>
-                                    {errors?.firstName && touched?.firstName && errors?.firstName}
-                                </FormHelperText> */}
                             </FormControl>
                             <FormControl>
                                 <OutlinedInput
@@ -86,9 +86,6 @@ function Register(){
                                         maxLength: "26",
                                     }}
                                 />
-                                {/* <FormHelperText className={styles.error}>
-                                    {errors?.firstName && touched?.firstName && errors?.firstName}
-                                </FormHelperText> */}
                             </FormControl>
 
                             <FormControl>
@@ -112,9 +109,6 @@ function Register(){
                                         />
                                     ))}
                                 </Box>
-                                {/* <FormHelperText className={styles.error}>
-                                    {errors?.firstName && touched?.firstName && errors?.firstName}
-                                </FormHelperText> */}
                             </FormControl>
 
                             <FormControl>
@@ -122,13 +116,13 @@ function Register(){
                                    Login Details
                                 </Typography>
                                 <OutlinedInput
-                                    type="text"
+                                    type="email"
                                     className={styles.input}
                                     placeholder="Email *"
                                     onInput={(e) => {
-                                        setFieldValue("email", nameValidation(e?.target?.value));
+                                        setFieldValue("email", e.target.value);
                                     }}
-                                    value={values.firstName}
+                                    value={values.email}
                                     name="email"
                                     onBlur={handleBlur}
                                     error={errors?.email && touched?.email}
@@ -136,19 +130,16 @@ function Register(){
                                         maxLength: "26",
                                     }}
                                 />
-                                {/* <FormHelperText className={styles.error}>
-                                    {errors?.firstName && touched?.firstName && errors?.firstName}
-                                </FormHelperText> */}
                             </FormControl>
                             <FormControl>
                                 <OutlinedInput
-                                    type="text"
+                                    type="password"
                                     className={styles.input}
                                     placeholder="Password *"
                                     onInput={(e) => {
-                                        setFieldValue("password", nameValidation(e?.target?.value));
+                                        setFieldValue("password", e.target.value);
                                     }}
-                                    value={values.lastName}
+                                    value={values.password}
                                     name="password"
                                     onBlur={handleBlur}
                                     error={errors?.password && touched?.password}
@@ -156,14 +147,18 @@ function Register(){
                                         maxLength: "26",
                                     }}
                                 />
+                                <FormHelperText className={styles.error}>
+                                    {errors?.password && touched?.password && errors?.password}
+                                </FormHelperText>
                                 <Typography className={styles.passwordHelpTxt}>
                                     Minimum 8 characters with at least one uppercase, one lowercase, one special character and a number
                                 </Typography>
                             </FormControl>
 
-                            <div className={styles.registerBtn} onClick={handleSubmit}>
+                            <div className={styles.registerBtn} onClick={!loading ? handleSubmit : null}>
                                 <Typography>REGISTER</Typography>
-                                <ArrowForwardIcon />
+                                {loading ? <CircularProgress className={styles.circleLoader}/> : <ArrowForwardIcon />}
+                             
                             </div>
 
                         </form>
