@@ -5,13 +5,18 @@ import { ROUTES } from "./routes";
 import Loader from "../components/Loader";
 import Application from "../pages/Application";
 import Register from "../pages/Register";
+import Login from "../pages/Login";
 
-const AppRoutes = ({TOKEN}) => {
+const AppRoutes = () => {
     const nav = useNavigate();
 
     useEffect(() => {
+        let TOKEN = localStorage.getItem("token");
+
         if(!TOKEN){
-            nav(`/register`)
+            nav(`/register`);
+        }else{
+            nav(`/login`);
         }
     },[]);
     
@@ -20,6 +25,7 @@ const AppRoutes = ({TOKEN}) => {
         <Routes>
             <Route element={<Layout />}>
                 <Route path={ROUTES.HOME} element={<Application />}/>
+                <Route path={ROUTES.LOGIN} element={<Login />}/>
                 <Route path={ROUTES.REGISTER} element={<Register />}/>
             </Route>
             {/* <Route path="*" element={<Navigate to={ROUTES.HOME} />} /> */}

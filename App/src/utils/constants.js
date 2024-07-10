@@ -2,6 +2,8 @@ import {object, string } from "yup";
 
 export const NavItems = ["New Drops 🔥", "Men", "Women"]
 
+export const KEYCHAIN = "kicks_key"
+
 export const GENDERS = [
   {
     value: "Male",
@@ -19,6 +21,19 @@ export const GENDERS = [
 
 export const allowAlphabets = (value = "") => {
     return value?.replace(/[^a-zA-Z]/gi, "");
+};
+
+export const LOGIN_DETAILS = {
+  initialValue: {
+    email: "",
+    password: ""
+  },
+  validationSchema: object().shape({
+    email: string().required("Required").email("Invalid Email").nullable(),
+    password: string()
+    .required("Required")
+    .nullable(),
+  }),
 };
 
 export const REGISTER_DETAILS = {

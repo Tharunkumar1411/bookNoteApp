@@ -13,6 +13,7 @@
 
     .registerContainer{
         @include flexCol;
+        gap: 24px;
 
         @media screen and (min-width: 768px) {
             padding: 0px 40px;
@@ -20,9 +21,7 @@
             flex-shrink: 0;
             align-self: stretch;
         }
-        
        
-
         .registerTxt{
             color: var(--Dark-Gray, #232321);
             font-family: RubikSemiBold;
@@ -32,7 +31,9 @@
         .registerSubTxt{
             color: var(--Dark-Gray, #232321);
             font-family: "SansRegular";
-            font-size: 20px;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         .orTxt{

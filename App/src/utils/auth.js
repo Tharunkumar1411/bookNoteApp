@@ -1,14 +1,16 @@
-import { FacebookAuthProvider, GoogleAuthProvider, OAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, OAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export const handleGoogleAuth = () => {
+    const nav = useNavigate(); 
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
     .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        const user = result.user;
-        console.log("check user::", user, token)
+        nav(`/kicks`);
+        localStorage.setItem("token", token)
     }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -60,5 +62,18 @@ export const handleFbAuth = () => {
     const email = error.customData.email;
     const credential = OAuthProvider.credentialFromError(error);
     console.log("error::", error)
+  });
+}
+
+
+export const handleEmailAuth = async(email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    return userCredential;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
   });
 }
