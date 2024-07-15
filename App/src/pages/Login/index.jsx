@@ -11,7 +11,7 @@ import { handleAppleAuth, handleEmailAuth, handleFbAuth, handleGoogleAuth } from
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Register(){
+function Login(){
     const [loading, setLoading] = useState(false);
     const nav = useNavigate();
 
@@ -19,16 +19,19 @@ function Register(){
         console.log("values check::", values);
         setLoading(prev => !prev);
 
-
         try {
-            const userDetails = await handleEmailAuth(values.email, values.password);
+            const userDetails = await handleEmailAuth(values.email, values.password, "Login");
             console.log("check userdetails::", userDetails)
         } catch (error) {
             console.log("chekc error::", error)
         } finally {
             setLoading(prev => !prev)
         }
+    }
 
+    const handleGoogleLogin = async() => {
+        const result = await handleGoogleAuth();
+        console.log("check result:", result)
     }
 
     const handleNavRegister = () => {
@@ -40,7 +43,7 @@ function Register(){
             <div className={styles.registerContainer}>
                 <div>
                     <Typography className={styles.registerTxt}>Login</Typography>
-                    <Typography className={styles.registerSubTxt} onClick={handleNavRegister}>Already have an account</Typography>
+                    <Typography className={styles.registerSubTxt} onClick={handleNavRegister}>Create your account here</Typography>
                 </div>
 
                 <Formik  
@@ -103,7 +106,7 @@ function Register(){
                             </div>
 
                             <div className={styles.socialContainer}>
-                                <img src={GoogleImg} alt="google" className={styles.socialBtn} onClick={handleGoogleAuth}/>
+                                <img src={GoogleImg} alt="google" className={styles.socialBtn} onClick={handleGoogleLogin}/>
                                 <img src={AppleImg} alt="google" className={styles.socialBtn} onClick={handleAppleAuth}/>
                                 <img src={FbImg} alt="google" className={styles.socialBtn} onClick={handleFbAuth}/> 
                             </div>
@@ -122,4 +125,4 @@ function Register(){
     )
 }
 
-export default Register;
+export default Login;
