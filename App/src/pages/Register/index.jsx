@@ -10,19 +10,22 @@ import JoinCard from "../../components/JoinCard";
 import { handleAppleAuth, handleEmailAuth, handleFbAuth, handleGoogleAuth } from "../../utils/auth";
 import { useEffect, useState } from "react";
 import firebaseApp, { auth } from "../../firebase";
+import { ROUTES } from "../../router/routes";
+import { useNavigate } from "react-router-dom";
 
 function Register(){
     const [loading, setLoading] = useState(false);
+    const nav = useNavigate();
 
     const nameValidation = (value = "") => {
         return allowAlphabets(value);
     };
 
     const handleRegister = async (values) => {
-        const result = await handleEmailAuth(values.email, values.password);
+        const result = await handleEmailAuth(values.email, values.password, values.firstName);
         if(result){
-            console.log("check result::", result)
-            const setToken = sessionStorage.setItem("Auth Token", result.user.accessToken)
+            sessionStorage.setItem("Auth Token", result.user.accessToken);
+            nav(ROUTES.HOME);
         }
     }
 

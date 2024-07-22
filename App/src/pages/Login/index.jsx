@@ -10,18 +10,20 @@ import JoinCard from "../../components/JoinCard";
 import { handleAppleAuth, handleEmailAuth, handleFbAuth, handleGoogleAuth } from "../../utils/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../router/routes";
 
 function Login(){
     const [loading, setLoading] = useState(false);
     const nav = useNavigate();
 
     const handleLogin = async(values) => {
-        console.log("values check::", values);
         setLoading(prev => !prev);
 
         try {
             const userDetails = await handleEmailAuth(values.email, values.password, "Login");
-            console.log("check userdetails::", userDetails)
+            console.log("put :", userDetails)
+            sessionStorage.setItem("Auth Token", userDetails?.user?.accessToken);
+            nav(ROUTES.HOME);
         } catch (error) {
             console.log("chekc error::", error)
         } finally {
@@ -31,7 +33,7 @@ function Login(){
 
     const handleGoogleLogin = async() => {
         const result = await handleGoogleAuth();
-        console.log("check result:", result)
+        sessionStorage.setItem("Auth Token", result?.accessToken);
     }
 
     const handleNavRegister = () => {

@@ -14,10 +14,8 @@ const AppRoutes = () => {
     const nav = useNavigate();
 
     useEffect(() => {
-        const user = auth.currentUser;
-        const getToken = sessionStorage.getItem("Auth Token")
-        console.log("conditon check::", user, getToken)
-        if(user && getToken){
+        const Token = sessionStorage.getItem("Auth Token")
+        if(Token){
             nav(ROUTES.HOME)
         }else{
             nav(ROUTES.LOGIN)

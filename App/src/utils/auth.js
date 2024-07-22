@@ -55,25 +55,30 @@ export const handleFbAuth = () => {
 }
 
 
-export const handleEmailAuth = async(email, password, type = "") => {
+export const handleEmailAuth = async(email, password, displayName = "", type = "",) => {
   if(type === "Login"){
-    return signInWithEmailAndPassword(auth, email, password)
+    return await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       return userCredential
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-  });
-  } else{
-    return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      return userCredential;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
     });
-  }
+  } else{
+    return await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Update the display name
+        return updateProfile(userCredential.user, {
+          displayName: displayName
+        }).then(() => {
+          return userCredential;
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // Handle errors here
+      });
+    }
 }
