@@ -6,7 +6,6 @@ const RemoteProductApp = React.lazy(() => import("home/HomeApp"));
 const Application = () => {
     return(
         <div>
-            Applicaton
             <RemoteProductApp />
         </div>
     )
