@@ -1,3 +1,5 @@
+@import "../styles/mixins.scss";
+
 .heading{
     color: var(--Dark-Gray, #232321);
     font-family: RubikSemiBold;
@@ -34,16 +36,14 @@
     }
 
     .bannerContentContainer{
-        display: flex;
-        flex-direction: row;
+        @include flexRow;
         justify-content: space-between;
         width: 100%;
         margin: 1rem;
         gap: 1rem;
 
         .bannerContent{
-            display: flex;
-            flex-direction: column;
+            @include flexCol;
             justify-content: end;
             color: #fff;
 
@@ -68,10 +68,7 @@
                 font-weight: 600;
                 line-height: normal;
 
-                @media screen and (max-width: 768px) {
-                    font-size: 14px;
-                    width: 197px;
-                }
+              
             }
         }
 
@@ -90,6 +87,7 @@
             line-height: normal;
             letter-spacing: 0.25px;
             text-transform: uppercase;
+            cursor: pointer;
         }
 
         .previewBannerContainer{
@@ -118,6 +116,55 @@
                 }
             }
         }
+    }
+}
+
+.newDropContainer{
+    @include flexCol;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+
+    .dropContent{
+        @include flexCol;
+        justify-content: center;
+        width: fit-content;
+        align-self: center;
+        
+        .header{
+            color: var(--Dark-Gray, #232321);
+            font-family: RubikSemiBold;
+            font-size: 74px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 95%;
+            text-transform: uppercase;
+            width: 689px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 24px;
+                width: 200px;
+            }
+        }
+
+        .button{
+            width: fit-content;
+            padding: 0.5rem 1rem;
+            background-color: rgba(74, 105, 226, 1);
+            border: none;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            color: #fff;
+            font-family: RubikSemiBold;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.25px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
     }
 }
 

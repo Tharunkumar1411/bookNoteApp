@@ -1,8 +1,9 @@
-import { Typography, useTheme } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
 import styles from "./styles.module.scss";
 import backgroundImage from "../assets/images/homeBanner.png"
 import previewBgOne from "../assets/images/previewOne.svg"
 import previewBgTwo from "../assets/images/previewTwo.svg"
+import NewDropCard from "../components/NewDropCard";
 
 const Home = () => {
     const theme = useTheme();
@@ -44,10 +45,6 @@ const Home = () => {
 
     return (
         <div>
-            {/* <Typography sx={typoStyles} className={styles.heading}>
-                DO IT <span className={styles.spanHeader}>RIGHT</span>
-            </Typography> */}
-
             <div className={styles.bannerContainer} style={homeBannerStyle}>
                 <div className={styles.bannerContentContainer}>
                     <div className={styles.bannerContent}>
@@ -61,6 +58,15 @@ const Home = () => {
                         <div className={styles.previewTwo} style={previewBannerTwo}/>
                     </div>
                 </div>
+            </div>
+            
+            <div className={styles.newDropContainer}>
+                <div className={styles.dropContent}>
+                    <Typography className={styles.header}>Don’t miss out new drops</Typography>
+                    <button className={styles.button}>SHOP NEW DROPS</button>
+                </div>
+                
+                <NewDropCard />
             </div>
         </div>
     );

@@ -1,0 +1,72 @@
+@import "../../styles/mixins.scss";
+
+
+.gridContainer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+    
+    .dropContainer{
+        @include flexCol;
+        width: 318px;
+        align-items: center;
+        gap: 1rem;
+        @media screen and (max-width: 768px) and (max-width: 300px)  {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            flex: 1 0 0;
+            width: 180px;
+        }
+
+        .imageContainer{
+            .imgCard{
+                width: 318px;
+                height: 334px;
+                @media screen and (max-width: 768px) and (max-width: 300px) {
+                    width: 180px;
+                    height: 190px;
+                }
+            }
+        }
+
+        .productName {
+            color: var(--Dark-Gray, #232321);
+            font-family: RubikSemiBold;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+
+        .productButton{
+            display: flex;
+            height: 48px;
+            padding: 8px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            align-self: stretch;
+            border-radius: 8px;
+            background: var(--Dark-Gray, #232321);
+            color: #fff;
+            color: var(--Pure-White, #FFF);
+            font-family: RubikSemiBold;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.25px;
+            text-transform: uppercase;
+            @media screen and (max-width: 768px) {
+                font-size: 12px;
+            }
+        }
+    }
+}
