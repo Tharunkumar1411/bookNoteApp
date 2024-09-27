@@ -1,9 +1,11 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import { ButtonGroup, Grid, IconButton, Typography, useTheme } from "@mui/material";
 import styles from "./styles.module.scss";
 import backgroundImage from "../assets/images/homeBanner.png"
 import previewBgOne from "../assets/images/previewOne.svg"
 import previewBgTwo from "../assets/images/previewTwo.svg"
 import NewDropCard from "../components/NewDropCard";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Home = () => {
     const theme = useTheme();
@@ -68,6 +70,16 @@ const Home = () => {
                 
                 <NewDropCard />
             </div>
+
+            {/* <div className={styles.categoriesContainer}>
+                <div className={styles.headerContainer}>
+                    <Typography className={styles.header}>Categories</Typography>
+                    <div className={styles.buttonGroup}>
+                        <ArrowBackIosNewIcon className={styles.arrowBtn}/>
+                        <ArrowForwardIosIcon className={styles.arrowBtn}/>
+                    </div>
+                </div>
+            </div> */}
         </div>
     );
 };

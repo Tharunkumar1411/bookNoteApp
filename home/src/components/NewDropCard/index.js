@@ -13,8 +13,9 @@ const mapObject = [
 ]
 
 const NewDropCard = () => {
+    
     return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} className={styles.gridContainer}>
+        <div className={styles.gridContainer}>
             {mapObject.map((item, index) => (
                 <div key={index} className={styles.dropContainer}>
                     <div className={styles.imageContainer}>
@@ -31,9 +32,9 @@ const NewDropCard = () => {
                     <Typography className={styles.productName}>{item.productName}</Typography>
 
                     <button className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
-                </div>      
+                </div>  
             ))}
-        </Grid>
+        </div>
     )
 }
 
