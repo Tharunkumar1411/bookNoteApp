@@ -21,7 +21,6 @@ function Login(){
 
         try {
             const userDetails = await handleEmailAuth(values.email, values.password, "Login");
-            console.log("put :", userDetails)
             sessionStorage.setItem("Auth Token", userDetails?.user?.accessToken);
             nav(ROUTES.HOME);
         } catch (error) {
@@ -34,6 +33,7 @@ function Login(){
     const handleGoogleLogin = async() => {
         const result = await handleGoogleAuth();
         sessionStorage.setItem("Auth Token", result?.accessToken);
+        location.reload();
     }
 
     const handleNavRegister = () => {
@@ -125,6 +125,6 @@ function Login(){
             
         </div>
     )
-}
+}-0
 
 export default Login;

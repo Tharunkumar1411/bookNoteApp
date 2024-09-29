@@ -1,0 +1,64 @@
+@import "../../styles/mixins.scss";
+
+.reviewCardCard{
+    @include flexCol;
+    width: 429px;
+    gap: 8px;
+    border-radius: 32px;
+    background: #FAFAFA;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+
+    .reviewHeader{
+        @include flexRow;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 16px 0 16px;
+
+        .header{
+            color: var(--Dark-Gray, #232321);
+            font-family: RubikSemiBold;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .subHeader{
+            color: var(--Dark-Gray, #232321);
+            font-family: sansRegular;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .reviewImg{
+            width: 64px;
+            height: 64px;
+            @media screen and (max-width: 768px) {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+    .ratingContainer{
+        @include flexRow;
+        gap: 8px;
+        align-items: center;
+        padding: 0 16px;
+    }
+   
+
+    .reviewImage{
+        width: 429px;
+        height: 325px;
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
+        @media screen and (max-width: 768px) {
+            width: auto;
+            height: 229px;
+            align-self: stretch;
+        }
+
+    }
+}

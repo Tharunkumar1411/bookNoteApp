@@ -1,10 +1,10 @@
 @import "../../styles/mixins.scss";
 
 .footerRootContainer{
-    margin-top: 2rem;
     overflow: hidden;
     background-color: #4A69E2;
     border-radius: 48px;
+    margin: 20px;
 
     .topContainer{
         @include flexRow;
