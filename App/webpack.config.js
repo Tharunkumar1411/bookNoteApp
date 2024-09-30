@@ -5,7 +5,9 @@ const deps = require("./package.json").dependencies;
 
 module.exports = () => ({
   output: {
-    publicPath: "http://localhost:8081/", // Ensure the public path matches the parent app's address
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    publicPath: "https://kicks-app-two.vercel.app/", // Ensure the public path matches the parent app's address
   },
 
   resolve: {
