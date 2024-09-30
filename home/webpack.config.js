@@ -6,9 +6,9 @@ const path = require('path');
 
 module.exports = (_, argv) => ({
   output: {
-    path: path.resolve(__dirname, 'dist'),  // Output to 'dist' directory
-    filename: '[name].[contenthash].js',  // Cache busting with content hash
-    publicPath: '/',  // Use root path for production
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    publicPath: '/',
   },
 
   resolve: {
