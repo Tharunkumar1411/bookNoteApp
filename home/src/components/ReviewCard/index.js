@@ -1,6 +1,4 @@
 import styles from "./styles.module.scss";
-import reviewPersonOne from "../../assets/images/reviewPersonOne.svg";
-import reviewOne from "../../assets/images/reviewOne.svg"
 import { Avatar, Rating } from "@mui/material";
 
 export default function ReviewCard({ title, subText, personImg, reviewImg, rating }){
@@ -19,5 +17,5 @@ export default function ReviewCard({ title, subText, personImg, reviewImg, ratin
             </div>
             <div style={{ backgroundImage: `url(${reviewImg})` }} className={styles.reviewImage} />
         </div>
-      );
+    );
 }

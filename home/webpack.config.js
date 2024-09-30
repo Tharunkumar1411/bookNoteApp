@@ -6,9 +6,9 @@ const deps = require("./package.json").dependencies;
 
 module.exports = (_, argv) => ({
   output: {
-    path: path.resolve(__dirname, 'dist'), // Output to 'dist'
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: argv.mode === 'development' ? 'http://localhost:8081/' : 'https://kicks-home.vercel.app/',
+    publicPath: argv.mode === 'development' ? 'http://localhost:8080/' : 'https://kicks-home.vercel.app/',
   },
 
   resolve: {
@@ -16,7 +16,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 8080,
     historyApiFallback: true,
   },
 

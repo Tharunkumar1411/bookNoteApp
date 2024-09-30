@@ -1,10 +1,9 @@
-import {Typography, useTheme } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import styles from "./styles.module.scss";
 import backgroundImage from "../assets/images/homeBanner.svg"
 import previewBgOne from "../assets/images/previewOne.svg"
 import previewBgTwo from "../assets/images/previewTwo.svg"
 import NewDropCard from "../components/NewDropCard";
-import { useRef } from "react";
 import ReviewCard from "../components/ReviewCard";
 import reviewPersonOne from "../assets/images/reviewPersonOne.svg";
 import reviewOne from "../assets/images/reviewOne.svg"
@@ -14,7 +13,12 @@ import reviewPersonThree from "../assets/images/reviewPersonThree.svg";
 import reviewThree from "../assets/images/reviewThree.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import cat1 from "../assets/images/cat1.svg";
+import categoryOne from "../assets/images/categoryOne.png"
+import categoryTwo from "../assets/images/categoryTwo.png"
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useRef } from "react";
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 const reviewData = [
     {
@@ -22,7 +26,7 @@ const reviewData = [
       subText: "I highly recommend shopping from kicks",
       personImg: reviewPersonOne,
       reviewImg: reviewOne,
-      rating: 5
+      rating: 5,
     },
     {
       title: "Great Service",
@@ -47,6 +51,13 @@ const reviewData = [
     }
 ];
 
+const categories = [
+    { title1: "Basketball", title2: "Shoes", image: categoryTwo, bgCode: "#fff" },
+    { title1: "Lifestyle", title2: "Shoes", image: categoryOne, bgCode: "#ECEEF0" },
+    { title1: "Basketball", title2: "Shoes", image: categoryTwo, bgCode: "#fff" },
+    { title1: "Lifestyle", title2: "Shoes", image: categoryOne, bgCode: "#ECEEF0" },
+];
+
 const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -68,6 +79,20 @@ const responsive = {
 };
 
 const Home = () => {
+    const carouselRef = useRef(null);
+
+    const handleNext = () => {
+      if (carouselRef.current) {
+        carouselRef.current.next();
+      }
+    };
+  
+    const handlePrevious = () => {
+      if (carouselRef.current) {
+        carouselRef.current.previous();
+      }
+    };
+
     const homeBannerStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -115,14 +140,40 @@ const Home = () => {
                 <NewDropCard />
             </div>
 
-            <div>
-                <Carousel responsive={responsive}>
-                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
-                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
-                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
-                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
-                </Carousel>
+            <div className={styles.categoryRoot}>
+                <div className={styles.headerContainer}>
+                    <h3 className={styles.header}>CATEGORIES</h3>
+                    <div className={styles.buttonGroup}>
+                        <ArrowBackIosNewIcon className={styles.arrowBtn} onClick={handlePrevious} />
+                        <ArrowForwardIosIcon className={styles.arrowBtn} onClick={handleNext} />
+                    </div>
+                </div>
+                <div className={styles.categoryContainer}>
+                    <Carousel 
+                        responsive={responsive}
+                        ref={carouselRef}
+                        showDots={false}
+                        arrows={false}
+                    >
+                        {categories.map((category, index) => (
+                        <div 
+                            key={index} 
+                            style={{ backgroundImage: `url(${category.image})`, backgroundColor: '' }} 
+                            className={styles.categoryImg}
+                        >
+                            <div className={styles.categoryTitle}>
+                            <Typography className={styles.title}>{category.title1}</Typography>
+                            <Typography className={styles.title}>{category.title2}</Typography>
+                            </div>
+                            <div className={styles.categoryLink}>
+                            <ArrowOutwardIcon className={styles.arrowLink} />
+                            </div>
+                        </div>
+                        ))}
+                    </Carousel>
+                </div>
             </div>
+            
 
             <div className={styles.newDropContainer} style={{marginTop:"6rem"}}>
                 <div className={styles.dropContent}>

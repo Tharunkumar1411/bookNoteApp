@@ -54,6 +54,8 @@
         height: 325px;
         border-bottom-left-radius: 32px;
         border-bottom-right-radius: 32px;
+        background-size: cover;
+        background-repeat: no-repeat;
         @media screen and (max-width: 768px) {
             width: auto;
             height: 229px;
