@@ -9,11 +9,9 @@ module.exports = (_, argv) => {
 
   return {
     output: {
-      path: path.resolve(__dirname, 'dist'), // Ensure the output path is set
+      path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
-      publicPath: isDevelopment
-        ? "http://localhost:8081/" // Development publicPath
-        : "https://your-production-domain.com/", // Production publicPath (replace with your production domain)
+      publicPath:  "http://localhost:8081/",
     },
 
     resolve: {
@@ -21,7 +19,7 @@ module.exports = (_, argv) => {
     },
 
     devServer: {
-      port: 8081, // Parent app runs on port 8080
+      port: 8081,
       historyApiFallback: true,
     },
 
@@ -55,12 +53,7 @@ module.exports = (_, argv) => {
     plugins: [
       new ModuleFederationPlugin({
         name: "parentApp",
-        remotes: {
-          // Dynamic remote URL depending on environment
-          home: isDevelopment
-            ? "home@http://localhost:8080/home-app.js" // Use localhost in development
-            : "home@https://kicks-home.vercel.app/home-app.js", // Use the deployed URL in production
-        },
+        remotes: "home@https://kicks-home.vercel.app/home-app.js" ,
         shared: {
           ...deps,
           react: {
