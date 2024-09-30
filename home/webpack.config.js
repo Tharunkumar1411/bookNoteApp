@@ -1,14 +1,14 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
+const path = require("path");
 const deps = require("./package.json").dependencies;
-const path = require('path');
 
 module.exports = (_, argv) => ({
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'), // Output to 'dist'
     filename: '[name].[contenthash].js',
-    publicPath: '/',
+    publicPath: argv.mode === 'development' ? 'http://localhost:8081/' : 'https://kicks-home.vercel.app/',
   },
 
   resolve: {
@@ -16,7 +16,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8080,
+    port: 8081,
     historyApiFallback: true,
   },
 
@@ -50,10 +50,9 @@ module.exports = (_, argv) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: "home",
-      filename: "home-app.js",
-      remotes: {},
+      filename: "home-app.js", // Name of the remote entry file
       exposes: {
-        "./HomeApp": "./src/Home/index.jsx",
+        "./HomeApp": "./src/Home/index.jsx", // Ensure correct exposure of components
       },
       shared: {
         ...deps,
@@ -65,15 +64,11 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "react-router-dom": {
-          singleton: true,
-          requiredVersion: deps["react-router-dom"],
-        },
       },
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv()
+    new Dotenv(),
   ],
 });

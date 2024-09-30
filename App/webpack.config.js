@@ -1,12 +1,11 @@
-/* eslint-disable no-undef */
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
 
 module.exports = () => ({
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8080/", // Ensure the public path matches the parent app's address
   },
 
   resolve: {
@@ -14,7 +13,7 @@ module.exports = () => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 8080, // Parent app runs on a different port
     historyApiFallback: true,
   },
 
@@ -47,12 +46,10 @@ module.exports = () => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "App",
-      filename: "remoteEntry.js",
+      name: "parentApp", // Name of the parent app
       remotes: {
-        home: "home@http://localhost:8080/home-app.js",
+        home: "home@https://kicks-home.vercel.app/home-app.js", // Reference your deployed microfrontend
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {
