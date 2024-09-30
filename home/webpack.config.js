@@ -2,6 +2,8 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
+const path = require('path');
+
 module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),  // Output to 'dist' directory
