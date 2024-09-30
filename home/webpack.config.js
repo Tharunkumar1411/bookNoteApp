@@ -4,7 +4,9 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8080/",
+    path: path.resolve(__dirname, 'dist'),  // Output to 'dist' directory
+    filename: '[name].[contenthash].js',  // Cache busting with content hash
+    publicPath: '/',  // Use root path for production
   },
 
   resolve: {
