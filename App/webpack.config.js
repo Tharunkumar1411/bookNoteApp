@@ -4,15 +4,13 @@ const Dotenv = require("dotenv-webpack");
 const path = require('path');
 const deps = require("./package.json").dependencies;
 
-module.exports = (_, argv) => {
-  const isDevelopment = argv.mode === 'development';
-
-  return {
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: '[name].[contenthash].js',
-      publicPath:  "http://localhost:8081/",
-    },
+module.exports = () => (
+  {
+  output: {
+    path: path.resolve(__dirname, 'dist'), // Output to 'dist'
+    filename: '[name].[contenthash].js',
+    publicPath: "http://localhost:8080/", // Ensure the public path matches the parent app's address
+  },
 
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js", ".json", ".scss"],
@@ -71,5 +69,4 @@ module.exports = (_, argv) => {
       }),
       new Dotenv(),
     ],
-  };
-};
+  });

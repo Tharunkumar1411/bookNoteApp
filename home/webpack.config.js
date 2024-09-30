@@ -4,7 +4,7 @@ const Dotenv = require("dotenv-webpack");
 const path = require("path");
 const deps = require("./package.json").dependencies;
 
-module.exports = (_, argv) => ({
+module.exports = (_) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
