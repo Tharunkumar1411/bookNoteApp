@@ -1,7 +1,6 @@
 import {Typography, useTheme } from "@mui/material";
 import styles from "./styles.module.scss";
-import "react-multi-carousel/lib/styles.css";
-import backgroundImage from "../assets/images/homeBanner.png"
+import backgroundImage from "../assets/images/homeBanner.svg"
 import previewBgOne from "../assets/images/previewOne.svg"
 import previewBgTwo from "../assets/images/previewTwo.svg"
 import NewDropCard from "../components/NewDropCard";
@@ -13,6 +12,9 @@ import reviewPersonTwo from "../assets/images/reviewPersonTwo.svg";
 import reviewTwo from "../assets/images/reviewTwo.svg"
 import reviewPersonThree from "../assets/images/reviewPersonThree.svg";
 import reviewThree from "../assets/images/reviewThree.svg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import cat1 from "../assets/images/cat1.svg";
 
 const reviewData = [
     {
@@ -114,7 +116,12 @@ const Home = () => {
             </div>
 
             <div>
-                
+                <Carousel responsive={responsive}>
+                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
+                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
+                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
+                    <div style={{backgroundImage: `url(${backgroundImage})`,}}/>
+                </Carousel>
             </div>
 
             <div className={styles.newDropContainer} style={{marginTop:"6rem"}}>
