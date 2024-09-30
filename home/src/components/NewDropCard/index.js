@@ -10,7 +10,6 @@ const mapObject = [
     {imgUrl: drop2, productName: "ADIDAS 4DFWD X PARLEY RUNNING SHOES", amount: "$125"},
     {imgUrl: drop3, productName: "ADIDAS 4DFWD X PARLEY RUNNING SHOES", amount: "$125"},
     {imgUrl: drop4, productName: "ADIDAS 4DFWD X PARLEY RUNNING SHOES", amount: "$125"},
-    {imgUrl: drop4, productName: "ADIDAS 4DFWD X PARLEY RUNNING SHOES", amount: "$125"},
 ]
 
 const NewDropCard = () => {

@@ -42,20 +42,12 @@ const reviewData = [
         reviewImg: reviewThree,
         rating: 4.8
       },
-    {
-      title: "Awesome Experience",
-      subText: "The shopping experience was seamless",
-      personImg: reviewPersonOne,
-      reviewImg: reviewOne,
-      rating: 4.8
-    }
 ];
 
 const categories = [
     { title1: "Basketball", title2: "Shoes", image: categoryTwo, bgCode: "#fff" },
     { title1: "Lifestyle", title2: "Shoes", image: categoryOne, bgCode: "#ECEEF0" },
     { title1: "Basketball", title2: "Shoes", image: categoryTwo, bgCode: "#fff" },
-    { title1: "Lifestyle", title2: "Shoes", image: categoryOne, bgCode: "#ECEEF0" },
 ];
 
 const responsive = {

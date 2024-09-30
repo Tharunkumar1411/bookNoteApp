@@ -9,6 +9,7 @@ module.exports = (_, argv) => ({
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     publicPath: 'https://kicks-home.vercel.app/',
+    // publicPath: 'http://localhost:8080/'
   },
 
   resolve: {
