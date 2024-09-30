@@ -2,6 +2,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const deps = require("./package.json").dependencies;
+const path = require("path");
 
 module.exports = () => ({
   output: {
