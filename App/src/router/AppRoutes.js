@@ -4,6 +4,8 @@ import Layout from './Layout';
 import { ROUTES } from './routes';
 import Loader from '../components/Loader';
 import { auth } from '../firebase';
+import ProductPage from '../pages/Product';
+import NotFound from '../pages/NotFound';
 
 // Lazy load the pages
 const Application = React.lazy(() => import('../pages/Application'));
@@ -15,10 +17,8 @@ const AppRoutes = () => {
 
     useEffect(() => {
         const Token = sessionStorage.getItem("Auth Token")
-        if(Token){
+        if(!Token){
             nav(ROUTES.HOME)
-        }else{
-            nav(ROUTES.LOGIN)
         }
     }, []);
     
@@ -27,10 +27,11 @@ const AppRoutes = () => {
         <Routes>
             <Route element={<Layout />}>
                 <Route path={ROUTES.HOME} element={<Application />} />
+                <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path={ROUTES.REGISTER} element={<Register />} />
             </Route>
-            {/* <Route path="*" element={<Navigate to={ROUTES.HOME} />} /> */}
+            <Route path="*" element={<NotFound />} />
         </Routes>
        </Suspense>
     );
