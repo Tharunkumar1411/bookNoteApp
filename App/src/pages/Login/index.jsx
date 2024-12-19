@@ -33,7 +33,9 @@ function Login(){
     const handleGoogleLogin = async() => {
         const result = await handleGoogleAuth();
         sessionStorage.setItem("Auth Token", result?.accessToken);
-        location.reload();
+        if(result?.accessToken){
+            nav(ROUTES.HOME);
+        }
     }
 
     const handleNavRegister = () => {
@@ -104,7 +106,6 @@ function Login(){
                             <div className={styles.registerBtn} onClick={!loading ? handleSubmit : null}>
                                 <Typography>EMAIL LOGIN</Typography>
                                 {loading ? <CircularProgress className={styles.circleLoader}/> : <ArrowForwardIcon />}
-                             
                             </div>
 
                             <div className={styles.socialContainer}>

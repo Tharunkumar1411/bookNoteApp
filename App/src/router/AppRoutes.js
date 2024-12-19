@@ -3,12 +3,11 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Layout from './Layout';
 import { ROUTES } from './routes';
 import Loader from '../components/Loader';
-import { auth } from '../firebase';
-import ProductPage from '../pages/Product';
 import NotFound from '../pages/NotFound';
 
 // Lazy load the pages
 const Application = React.lazy(() => import('../pages/Application'));
+const ProductPage = React.lazy(() => import('../pages/Product'));
 const Register = React.lazy(() => import('../pages/Register'));
 const Login = React.lazy(() => import('../pages/Login'));
 
@@ -16,9 +15,9 @@ const AppRoutes = () => {
     const nav = useNavigate();
 
     useEffect(() => {
-        const Token = sessionStorage.getItem("Auth Token")
+        const Token = sessionStorage.getItem("Auth Token");
         if(!Token){
-            nav(ROUTES.HOME)
+            nav(ROUTES.LOGIN)
         }
     }, []);
     
