@@ -8,8 +8,8 @@ module.exports = () => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    // publicPath: "https://kicks-app-two.vercel.app/", // Ensure the public path matches the parent app's address
-    publicPath: "http://localhost:8082/"
+    publicPath: "https://kicks-app-two.vercel.app/", // Ensure the public path matches the parent app's address
+    // publicPath: "http://localhost:8082/"
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = () => ({
   },
 
   devServer: {
-    port: 8082, // Parent app runs on a different port
+    port: 8081, // Parent app runs on a different port
     historyApiFallback: true,
   },
 
