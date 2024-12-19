@@ -38,10 +38,10 @@
                 opacity: 0px;
                 flex: 1 0 0;
                 align-self: stretch;
-                // @media screen and (max-width: 768px) {
-                //     width: 155px;
-                //     height: 164px;                    
-                // }
+                @media screen and (max-width: 425px) {
+                    width: 155px;
+                    height: 164px;                    
+                }
             }
         }
 

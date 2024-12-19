@@ -1,0 +1,42 @@
+@import "../../styles/mixins.scss";
+
+.rootContainer{
+    @include flexCol;
+
+    .colorContainer, .sizeContainer{
+        .pallateHeader{
+            font-family: 'RubikSemiBold';
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 18.96px;
+
+        }
+        .pallateContainer{
+            @include flexRow;
+            align-items: start; 
+            gap: 20px;
+            flex-wrap: wrap;
+            .pallate{
+                width: 24px;
+                height: 24px;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+
+            .sizePallate{
+                width: 50.25px;
+                height: 48px;
+                padding: 8px 16px;
+                gap: 4px;
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'RubikSemiBold';
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16.59px;
+            }
+        }
+    }
+}

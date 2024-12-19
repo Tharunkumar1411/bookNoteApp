@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Typography } from "@mui/material";
 import styles from "./styles.module.scss";
 import backgroundImage from "../assets/images/homeBanner.svg"
