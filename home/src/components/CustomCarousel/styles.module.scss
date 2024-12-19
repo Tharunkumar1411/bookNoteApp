@@ -1,0 +1,17 @@
+.carouselContainer {
+    :global(.carousel .thumbs-wrapper) {
+        margin: 0px;
+        margin-block-start: 0px;
+    }
+
+   
+    ul {
+        margin-block-start: 0px;
+        padding-inline-start: 0px;
+        margin: 20px;
+    }
+
+    .img{
+        border-radius: 16px;
+    }
+}

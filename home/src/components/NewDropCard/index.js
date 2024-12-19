@@ -1,3 +1,4 @@
+import React from "react";
 import { Grid, Typography, colors } from "@mui/material";
 import styles from "./styles.module.scss";
 import drop1 from "../../assets/images/drop1.svg"
