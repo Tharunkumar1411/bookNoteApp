@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { ToastContainer, Slide } from "react-toastify";
 import { HashRouter } from "react-router-dom";
 import AppRoutes from "./router/AppRoutes";

@@ -10,6 +10,7 @@ import logoImg from "../../assets/images/Logo.svg"
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { NavItems } from '../../utils/constants';
+import zIndex from '@mui/material/styles/zIndex';
 function NavBar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -19,7 +20,6 @@ function NavBar() {
     <div>
         <div className={styles.navRootContainer}>
             <div>
-
                 {isMobile ? 
                     (
                         <Hamburger toggled={open} size={20} toggle={setOpen} />
@@ -27,18 +27,17 @@ function NavBar() {
                 : 
                     (
                         <div className={styles.navMenuItems}>
-                        
                             {(NavItems.map((item, idx) => (
                                 <motion.Typography
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 260,
-                                    damping: 20,
-                                    delay: 0.1 + idx / 10,
-                                }}
-                                key={idx}
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 260,
+                                        damping: 20,
+                                        delay: 0.1 + idx / 10,
+                                    }}
+                                    key={idx}
                                 >
                                     <Typography className={styles.menuOption}>{item}</Typography>
                                 </motion.Typography>

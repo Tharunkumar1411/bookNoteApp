@@ -5,6 +5,8 @@ import drop1 from "../../assets/images/drop1.svg"
 import drop2 from "../../assets/images/drop2.svg"
 import drop3 from "../../assets/images/drop3.svg"
 import drop4 from "../../assets/images/drop4.svg"
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../../App/src/router/routes";
 
 const mapObject = [
     {imgUrl: drop1, productName: "ADIDAS 4DFWD X PARLEY RUNNING SHOES", amount: "$125"},
@@ -14,6 +16,11 @@ const mapObject = [
 ]
 
 const NewDropCard = () => {
+    const navigate = useNavigate();
+    
+    const handleProduct = () => {
+        navigate(ROUTES.PRODUCT);
+    }
     
     return (
         <div className={styles.gridContainer}>
@@ -32,7 +39,7 @@ const NewDropCard = () => {
 
                     <Typography className={styles.productName}>{item.productName}</Typography>
 
-                    <button className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
+                    <button onClick={handleProduct} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
                 </div>  
             ))}
         </div>
