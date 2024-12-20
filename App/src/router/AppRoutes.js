@@ -14,12 +14,12 @@ const Login = React.lazy(() => import('../pages/Login'));
 const AppRoutes = () => {
     const nav = useNavigate();
 
-    useEffect(() => {
-        const Token = sessionStorage.getItem("Auth Token");
-        if(!Token){
-            nav(ROUTES.LOGIN)
-        }
-    }, []);
+    // useEffect(() => {
+    //     const Token = sessionStorage.getItem("Auth Token");
+    //     if(!Token){
+    //         nav(ROUTES.LOGIN)
+    //     }
+    // }, []);
     
     return (
        <Suspense fallback={<Loader />}>

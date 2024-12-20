@@ -35,6 +35,8 @@
 
 .rootMenuContainer{
     margin-top: 20px;
+    z-index: 1;
+
 }
 
 .menuOption{
@@ -64,5 +66,6 @@
     padding: 1.25rem;
     padding-top: 0;
     background-color: #E7E7E3;
+    z-index: 1;
 }
   

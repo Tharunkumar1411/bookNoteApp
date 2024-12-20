@@ -8,8 +8,8 @@ module.exports = () => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: "https://kicks-app-two.vercel.app/", // Ensure the public path matches the parent app's address
-    // publicPath: "http://localhost:8082/"
+    // publicPath: "https://kicks-app-two.vercel.app/", // Ensure the public path matches the parent app's address
+    publicPath: "http://localhost:8081/"
   },
 
   resolve: {
@@ -52,7 +52,7 @@ module.exports = () => ({
     new ModuleFederationPlugin({
       name: "parentApp", // Name of the parent app
       remotes: {
-        home: "home@https://kicks-home.vercel.app/home-app.js", // Reference your deployed microfrontend
+        home: "home@http://localhost:8080/home-app.js", // Reference your deployed microfrontend
       },
       shared: {
         ...deps,
