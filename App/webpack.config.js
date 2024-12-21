@@ -52,7 +52,7 @@ module.exports = () => ({
     new ModuleFederationPlugin({
       name: "parentApp", // Name of the parent app
       remotes: {
-        home: "home@http://localhost:8080/home-app.js", // Reference your deployed microfrontend
+        home: "home@https://kicks-home.vercel.app/home-app.js", // Reference your deployed microfrontend
       },
       shared: {
         ...deps,
