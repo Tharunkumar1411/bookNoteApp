@@ -9,7 +9,6 @@ module.exports = (_, argv) => ({
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     publicPath: 'https://kicks-home.vercel.app/',
-    // publicPath: 'http://localhost:8080/'
   },
 
   resolve: {
@@ -57,9 +56,9 @@ module.exports = (_, argv) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: "home",
-      filename: "home-app.js", // Name of the remote entry file
+      filename: "home-app.js",
       exposes: {
-        "./HomeApp": "./src/Home/index.jsx", // Ensure correct exposure of components
+        "./HomeApp": "./src/Home/index.jsx",
         "./ProductApp": "./src/Product/index.jsx"
       },
       shared: {
