@@ -4,11 +4,14 @@ import preview from "../assets/images/cartPreview/preview.svg"
 import previewTwo from "../assets/images/cartPreview/previewTwo.svg"
 import previewThree from "../assets/images/cartPreview/previewThree.svg"
 import previewFour from "../assets/images/cartPreview/previewFour.svg"
-import { colors, Typography, useMediaQuery } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import ColorSizePallate from "../components/ColorSizePallate";
 import CustomButton from "../components/CustomButton";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CustomCarousel from "../components/CustomCarousel";
+import NewDropCard from "../components/NewDropCard";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Product(){
     const isMobile = useMediaQuery("(max-width:1024px)");
@@ -20,6 +23,19 @@ export default function Product(){
         price: '$125.00',
         previewImg: [preview, previewTwo, previewThree, previewFour]
     }
+
+    const handleNext = () => {
+        if (carouselRef.current) {
+            carouselRef.current.next();
+        }
+    };
+    
+    const handlePrevious = () => {
+        if (carouselRef.current) {
+            carouselRef.current.previous();
+        }
+    };
+    
     return(
         <div>
             <div className={styles.rootContainer}>
@@ -61,16 +77,17 @@ export default function Product(){
                     </div>
                 </div>
             </div>
-            {/* <div className={styles.newDropContainer}>
+            <div className={styles.newDropContainer}>
                 <div className={styles.dropContent}>
                     <Typography className={styles.header}>You may also like</Typography>
+                    {/* <div className={styles.buttonGroup}>
+                        <ArrowBackIosNewIcon className={styles.arrowBtn} onClick={handlePrevious} />
+                        <ArrowForwardIosIcon className={styles.arrowBtn} onClick={handleNext} />
+                    </div> */}
                 </div>
 
                 <NewDropCard />
-            </div> */}
+            </div>
         </div>
-        
-
-
     )
 }
