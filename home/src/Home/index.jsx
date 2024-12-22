@@ -20,6 +20,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useRef } from "react";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { responsive } from "../utils/constants";
 
 const reviewData = [
     {
@@ -50,26 +51,6 @@ const categories = [
     { title1: "Lifestyle", title2: "Shoes", image: categoryOne, bgCode: "#ECEEF0" },
     { title1: "Basketball", title2: "Shoes", image: categoryTwo, bgCode: "#fff" },
 ];
-
-const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 2
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 2
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1 
-    }
-};
 
 const Home = () => {
     const carouselRef = useRef(null);
