@@ -1,7 +1,7 @@
 import React from "react";
 import { ToastContainer, Slide } from "react-toastify";
-import { HashRouter } from "react-router-dom";
 import AppRoutes from "./router/AppRoutes";
+import { BrowserRouter } from "react-router-dom";
 
 export const toastErrorConfig = {
   position: "top-center",
@@ -19,10 +19,10 @@ export const toastErrorConfig = {
 
 const App = () => {
   return(
-   <HashRouter>
+   <BrowserRouter>
     <AppRoutes />
     <ToastContainer {...toastErrorConfig} />
-   </HashRouter>
+   </BrowserRouter>
   )
 }
 
