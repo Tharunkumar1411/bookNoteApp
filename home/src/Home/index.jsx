@@ -67,30 +67,9 @@ const Home = () => {
       }
     };
 
-    const homeBannerStyle = {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    };
-
-    const previewBannerOne = {
-        backgroundImage: `url(${previewBgOne})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    };
-
-    const previewBannerTwo = {
-        backgroundImage: `url(${previewBgTwo})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-    };
-
     return (
         <div>
-            <div className={styles.bannerContainer} style={homeBannerStyle}>
+            <div className={styles.bannerContainer} style={{backgroundImage: `url(${backgroundImage})`}}>
                 <div className={styles.bannerContentContainer}>
                     <div className={styles.bannerContent}>
                         <Typography className={styles.header}>NIKE AIR MAX</Typography>
@@ -99,8 +78,8 @@ const Home = () => {
                     </div>
 
                     <div className={styles.previewBannerContainer}>
-                        <div className={styles.previewOne} style={previewBannerOne}/>
-                        <div className={styles.previewTwo} style={previewBannerTwo}/>
+                        <div className={styles.previewOne} style={{backgroundImage: `url(${previewBgOne})`}}/>
+                        <div className={styles.previewTwo} style={{backgroundImage: `url(${previewBgTwo})`}}/>
                     </div>
                 </div>
             </div>
@@ -149,7 +128,7 @@ const Home = () => {
             </div>
             
 
-            <div className={styles.newDropContainer} style={{marginTop:"6rem"}}>
+            <div className={styles.newDropContainer}>
                 <div className={styles.dropContent}>
                     <Typography className={styles.header}>Reviews</Typography>
                     <button className={styles.button}>SEE ALL</button>
