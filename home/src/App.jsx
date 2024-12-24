@@ -2,8 +2,9 @@ import React, { Suspense } from "react";
 
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Product from "./Product";
+
+const Home = React.lazy(() => import("./Home"));
+const Product = React.lazy(() => import("./Product"));
 
 const App = () => {
   return(

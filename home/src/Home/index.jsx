@@ -70,6 +70,9 @@ const Home = () => {
     return (
         <div>
             <div className={styles.bannerContainer} style={{backgroundImage: `url(${backgroundImage})`}}>
+            <img src="../assets/images/previewOne.svg" style={{display:"none"}}/>
+            <img src="../assets/images/previewTwo.svg" style={{display:"none"}}/>
+
                 <div className={styles.bannerContentContainer}>
                     <div className={styles.bannerContent}>
                         <Typography className={styles.header}>NIKE AIR MAX</Typography>
@@ -78,6 +81,7 @@ const Home = () => {
                     </div>
 
                     <div className={styles.previewBannerContainer}>
+                        <img src="../assets/images/homeBanner.svg" style={{display:"none"}}/>
                         <div className={styles.previewOne} style={{backgroundImage: `url(${previewBgOne})`}}/>
                         <div className={styles.previewTwo} style={{backgroundImage: `url(${previewBgTwo})`}}/>
                     </div>
