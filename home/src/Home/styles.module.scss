@@ -32,6 +32,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    
     @media screen and (max-width: 768px) {
         height: 382px;
     }
@@ -130,12 +131,12 @@
     @include flexCol;
     gap: 1rem;
     margin-top: 2rem;
-    margin: 20px;
 
     .dropContent{
         @include flexRow;
         justify-content: space-between;
         align-items: end;
+        margin: 20px;
         
         .header{
             color: var(--Dark-Gray, #232321);
@@ -189,6 +190,8 @@
         justify-content: space-between;
         gap: 10px;
         flex-wrap: wrap;
+        margin: 20px;
+        
         @media screen and (max-width: 768px) {
             @include flexCol;
             gap: 20px;

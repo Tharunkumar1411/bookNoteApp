@@ -10,11 +10,23 @@ import logoImg from "../../assets/images/Logo.svg"
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { NavItems } from '../../utils/constants';
-import zIndex from '@mui/material/styles/zIndex';
+import  isAuthenticate  from '../../Hook/isAuthenticate';
+import {  useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../router/routes';
+
 function NavBar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = useState(false);
+  const {token} = isAuthenticate();
+
+  const nav = useNavigate()
+  
+  const handleProfileClick = () => {
+    if(!token){
+        nav(ROUTES.LOGIN)
+    }
+  }
 
   return(
     <div>
@@ -47,48 +59,47 @@ function NavBar() {
                 }
             </div>
 
-
             <div className={styles.logo}>
                 <img src={logoImg} alt="logo" />
             </div>
 
             <div className={styles.navProfileItems}>
-                {!isMobile && <SearchIcon />}
-                <PersonIcon />
-                <CartIcon />
+                {!isMobile && <SearchIcon style={{cursor:"pointer"}}/>}
+                <PersonIcon onClick={handleProfileClick} style={{cursor:"pointer"}} />
+                <CartIcon style={{cursor:"pointer"}} />
             </div>
         </div>
 
         {isMobile &&
-        <AnimatePresence className={styles.rootMenuContainer}>
-            {open && (
-                <motion.div  
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className={styles.animatedContainer}
-                >
-                    <div className={styles.dropMenu}>
-                    {(NavItems.map((item, idx) => (
-                            <motion.Typography
-                              initial={{ scale: 0, opacity: 0 }}
-                              animate={{ scale: 1, opacity: 1 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 260,
-                                damping: 20,
-                                delay: 0.1 + idx / 10,
-                              }}
-                              key={idx}
-                            >
-                                <Typography className={styles.dropOption}>{item}</Typography>
-                            </motion.Typography>
-                        )))}
-                    </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+            <AnimatePresence className={styles.rootMenuContainer}>
+                {open && (
+                    <motion.div  
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={styles.animatedContainer}
+                    >
+                        <div className={styles.dropMenu}>
+                            {(NavItems.map((item, idx) => (
+                                <motion.Typography
+                                initial={{ scale: 0, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 20,
+                                    delay: 0.1 + idx / 10,
+                                }}
+                                key={idx}
+                                >
+                                    <Typography className={styles.dropOption}>{item}</Typography>
+                                </motion.Typography>
+                            )))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         }
     </div>
   );

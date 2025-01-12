@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { colors, Radio, RadioGroup } from "@mui/material";
 import styles from "./styles.module.scss"
 
 const ColorSizePallate = ({data, selectedPallate}) => {
+    const [selectedItem, setSelectedItem] = useState({color:`${data?.color?.[0]}`, size: data?.size?.[0]});
+    let pallate = selectedPallate;
+
+    const handleColorClick = (item) => {
+       
+    };
+
     return(
         <div className={styles.rootContainer}>
             <div className={styles.colorContainer}>
                 <p className={styles.pallateHeader}>Color</p>
                 <div className={styles.pallateContainer}>
                     {data?.color?.map((item) => (
-                        <div style={item === selectedPallate.color ? {
+                        <div onClick={() => setSelectedItem({...selectedItem, color: item})} style={(selectedItem.color === item) ? {
                             border:`2px solid ${item}`,
                             padding: '5px',
                             borderRadius: "25px",
-                        } : {alignSelf: "center"}}>
+                        }: {alignSelf: "center"}}>
                             <div className={styles.pallate} style={{backgroundColor: item, }}/>
                         </div>
                     ))}
@@ -24,11 +31,11 @@ const ColorSizePallate = ({data, selectedPallate}) => {
                 <p className={styles.pallateHeader}>Size</p>
                 <div className={styles.pallateContainer}>
                     {data?.size?.map((item) => (
-                        <div style={item === selectedPallate.size ? {
+                        <div onClick={() => setSelectedItem({...selectedItem, size: item})} style={item === selectedItem.size ? {
                             backgroundColor: '#000',
                             color: '#fff',
-                            borderRadius: "15px"
-                        } : {color: "#000", backgroundColor: "#fff", borderRadius: "16px"}}>
+                            borderRadius: "15px",
+                        } : {color: "#000", backgroundColor: "#fff", borderRadius: "16px", cursor:"pointer"}}>
                             <div className={styles.sizePallate}>{item}</div>
                         </div>
                     ))}

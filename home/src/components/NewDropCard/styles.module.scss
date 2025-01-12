@@ -3,9 +3,10 @@
 .rootContainer{
     @include flexRow;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
     margin-top: 1rem;
+    margin: 20px;
     .dropContainer{
         width: 318px;
         gap: 16px;
