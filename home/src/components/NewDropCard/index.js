@@ -26,58 +26,25 @@ const NewDropCard = ({isCarousel = false}) => {
     }
     
     return (
-        <>
-            {(isCarousel) ? 
-                <Carousel
-                    responsive={responsiveLike}
-                    ref={carouselRef}
-                    showDots={false}
-                    arrows={false}
-                >
-                <div className={styles.rootContainer}>
-                    {mapObject.map((item, index) => (
-                        <div key={index} className={styles.dropContainer}>
-                            <div className={styles.imageContainer}>
-                                <div className={styles.imgCard} 
-                                    style={{
-                                        backgroundImage: `url(${item.imgUrl})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        backgroundRepeat: 'no-repeat'
-                                    }}
-                                />
-                            </div>
+        <div className={styles.rootContainer}>
+            {mapObject.map((item, index) => (
+                <div key={index} className={styles.dropContainer}>
+                    <div className={styles.imageContainer}>
+                        <div className={styles.imgCard} 
+                            style={{
+                                backgroundImage: `url(${item.imgUrl})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat'
+                            }}
+                        />
+                    </div>
 
-                            <Typography className={styles.productName}>{item.productName}</Typography>
-
-                            <button onClick={handleProduct(item.id)} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
-                        </div>  
-                    ))}
-                </div>
-             </Carousel>
-            :   
-                <div className={styles.rootContainer}>
-                    {mapObject.map((item, index) => (
-                        <div key={index} className={styles.dropContainer}>
-                            <div className={styles.imageContainer}>
-                                <div className={styles.imgCard} 
-                                    style={{
-                                        backgroundImage: `url(${item.imgUrl})`,
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        backgroundRepeat: 'no-repeat'
-                                    }}
-                                />
-                            </div>
-
-                            <Typography className={styles.productName}>{item.productName}</Typography>
-
-                            <button onClick={() => handleProduct(item.id)} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
-                        </div>  
-                    ))}
-                </div>
-            }
-        </>
+                    <Typography className={styles.productName}>{item.productName}</Typography>
+                    <button onClick={() => handleProduct(item.id)} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.amount}</span></button>
+                </div>  
+            ))}
+        </div>
     )
 }
 

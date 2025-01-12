@@ -80,10 +80,7 @@ export default function Product(){
             <div className={styles.newDropContainer}>
                 <div className={styles.dropContent}>
                     <Typography className={styles.header}>You may also like</Typography>
-                    {/* <div className={styles.buttonGroup}>
-                        <ArrowBackIosNewIcon className={styles.arrowBtn} onClick={handlePrevious} />
-                        <ArrowForwardIosIcon className={styles.arrowBtn} onClick={handleNext} />
-                    </div> */}
+                    <button className={styles.button}>EXPLORE</button>
                 </div>
 
                 <NewDropCard />
