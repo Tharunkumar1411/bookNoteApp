@@ -187,7 +187,7 @@
 
     .reviewRootContainer{
         @include flexRow;
-        justify-content: space-between;
+        justify-content: space-around;
         gap: 10px;
         flex-wrap: wrap;
         margin: 20px;

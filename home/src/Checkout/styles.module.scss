@@ -1,0 +1,205 @@
+@import "../styles/mixins.scss";
+
+.rootContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+
+    .savingContainer{
+        @include flexCol;
+        top: 160px;
+        left: 80px;
+        gap: 8px;
+
+        .header{
+            font-family: "RubikSemiBold";
+            font-size: 32px;
+            font-weight: 600;
+            color: #232321;
+        }
+
+        .label{
+            font-family: "SansRegular";
+            font-size: 14px;
+            font-weight: 600;
+            color: #232321;
+        }
+    }
+
+    .checkoutContainer{
+        @include flexRow;
+        gap: 47px;
+        align-items: flex-start;
+        margin-top: 20px;
+
+        @media screen and (max-width: 768px) {
+            @include flexCol;
+        }
+       
+        .productCard{
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            width: fit-content;
+
+            .detailsContainer{
+                @include flexRow;
+                gap: 20px;
+                
+                .subDetailsContainer{
+                    @include flexRow;
+                    gap: 20px;
+                    
+                    @media screen and (max-width: 768px) {
+                      @include flexCol;
+                    }
+
+                    .productHeader{
+                        @include flexCol;
+                        gap: 10px;
+                        
+                        .header{
+                            font-family: "RubikSemiBold";
+                            font-size: 32px;
+                            font-weight: 600;
+                            color: #232321;
+    
+                            @media screen and (max-width: 768px) {
+                               font-size: 16px;
+                            }
+                        }
+    
+                        .sizeContainer{
+                            @include flexRow;
+                            gap: 20px;
+                        }
+                
+                        .label{
+                            font-family: "SansRegular";
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: #232321;
+    
+                            @media screen and (max-width: 768px) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .categoryImg{
+                    width: 207.82px;
+                    height: 225px;
+                    border-radius: 24px;
+                    background-color: #edeef0;
+
+                    @media screen and (max-width: 768px) {
+                        width: 136px;
+                        height: 145px;
+                        border-radius: 24px;                        
+                    }
+
+                }
+
+
+
+                .amount{
+                    color: #4A69E2;
+                    font-family: "RubikSemiBold";
+                    font-size: 24px;
+                    font-weight: 600;
+                    height: fit-content;
+                    padding-top: 10px;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 16px;
+                     }
+                }
+            }
+
+            .header{
+                font-family: "RubikSemiBold";
+                font-size: 32px;
+                font-weight: 600;
+                color: #232321;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 16px;
+                 }
+            }
+    
+            .label{
+                font-family: "SansRegular";
+                font-size: 14px;
+                font-weight: 600;
+                color: #232321;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .summaryCard{
+            width: 418px;
+            height: fit-content;
+            gap: 24px;
+            opacity: 0px;
+
+            @media screen and (max-width: 768px) {
+                width: 358px;
+                height: fit-content;
+                padding: 16px;
+                gap: 16px;
+                border-radius: 16px;
+                opacity: 0px;
+                background-color: #fff;
+            }
+
+            .summaryContent{
+                @include flexCol;
+                gap: 20px;
+
+                .summaryRow{
+                    @include flexRow;
+                    justify-content: space-between;
+
+                    .header{
+                        font-family: "RubikSemiBold";
+                        font-size: 32px;
+                        font-weight: 600;
+                        color: #232321;
+        
+                        @media screen and (max-width: 768px) {
+                           font-size: 16px;
+                        }
+                    }
+
+                    .label{
+                        font-family: "SansRegular";
+                        font-size: 20px;
+                        font-weight: 600;
+
+                        @media screen and (max-width: 768px) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .header{
+                font-family: "RubikSemiBold";
+                font-size: 32px;
+                font-weight: 600;
+                color: #232321;
+
+                @media screen and (max-width: 768px) {
+                   font-size: 16px;
+                }
+            }
+
+        }
+
+        
+    }
+}
