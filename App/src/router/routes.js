@@ -3,5 +3,6 @@ export const ROUTES = {
     LOGIN: `/login`,
     REGISTER: `/register`,
     PRODUCT: `/product/:id`,
+    CHECKOUT: `/checkout/:id`,
     NOT_FOUND: `/notFound`
 }

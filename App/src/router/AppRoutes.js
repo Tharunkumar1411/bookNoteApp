@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Layout from './Layout';
 import { ROUTES } from './routes';
@@ -8,6 +8,7 @@ import NotFound from '../pages/NotFound';
 // Lazy load the pages
 const Application = React.lazy(() => import('../pages/Application'));
 const ProductPage = React.lazy(() => import('../pages/Product'));
+const CheckoutPage = React.lazy(() => import('../pages/Checkout'));
 const Register = React.lazy(() => import('../pages/Register'));
 const Login = React.lazy(() => import('../pages/Login'));
 
@@ -27,6 +28,7 @@ const AppRoutes = () => {
             <Route element={<Layout />}>
                 <Route path={ROUTES.HOME} element={<Application />} />
                 <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
+                <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path={ROUTES.REGISTER} element={<Register />} />
             </Route>
