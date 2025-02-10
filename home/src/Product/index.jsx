@@ -12,9 +12,12 @@ import CustomCarousel from "../components/CustomCarousel";
 import NewDropCard from "../components/NewDropCard";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../router/routes";
 
 export default function Product(){
     const isMobile = useMediaQuery("(max-width:1024px)");
+    const navigate = useNavigate();
 
     const tempObj = {
         header: 'ADIDAS 4DFWD X PARLEY RUNNING SHOES',
@@ -35,6 +38,10 @@ export default function Product(){
             carouselRef.current.previous();
         }
     };
+
+    const handleBuy = () => {
+        navigate(`${ROUTES.CHEKOUT}/2`);
+    }
     
     return(
         <div>
@@ -63,7 +70,7 @@ export default function Product(){
                             <CustomButton children="ADD TO CART" sx={{backgroundColor:"#000", color: "#fff", width:"100%"}}/>
                             <CustomButton children={<FavoriteBorderIcon />} sx={{backgroundColor:"#000", color: "#fff", width: "fit-content"}}/>
                         </div>
-                       <CustomButton children="BUY IT NOW" sx={{backgroundColor:"#4A69E2", color: "#fff"}}/>
+                       <CustomButton onClick={handleBuy} children="BUY IT NOW" sx={{backgroundColor:"#4A69E2", color: "#fff"}}/>
                     </div>
 
                     <div className={styles.aboutContainer}>
