@@ -60,7 +60,8 @@ module.exports = (_, argv) => ({
       filename: "home-app.js", // Name of the remote entry file
       exposes: {
         "./HomeApp": "./src/Home/index.jsx", // Ensure correct exposure of components
-        "./ProductApp": "./src/Product/index.jsx"
+        "./ProductApp": "./src/Product/index.jsx",
+        "./CheckoutApp": "./src/Checkout/index.jsx"
       },
       shared: {
         ...deps,
