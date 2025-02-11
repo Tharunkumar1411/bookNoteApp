@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Checkbox, FormControl, FormControlLabel, OutlinedInput, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Checkbox, FormControl, FormControlLabel, OutlinedInput, Typography } from "@mui/material";
 import styles from "./styles.module.scss";
-import { Form, Formik } from "formik";
-import { CHECKOUT_DETAILS, REGISTER_DETAILS } from '../../../App/src/utils/constants';
+import { Formik } from "formik";
 import OrderSummaryCard from '../components/OrderSummaryCard';
-import { DELIVERY_TYPE } from '../utils/constants';
+import { CHECKOUT_DETAILS, DELIVERY_TYPE } from '../utils/constants';
 import CustomButton from '../components/CustomButton';
 
 export default function Checkout(){
