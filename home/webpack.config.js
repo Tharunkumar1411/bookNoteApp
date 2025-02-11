@@ -57,10 +57,11 @@ module.exports = (_, argv) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: "home",
-      filename: "home-app.js", // Name of the remote entry file
+      filename: "home-app.js",
       exposes: {
-        "./HomeApp": "./src/Home/index.jsx", // Ensure correct exposure of components
+        "./HomeApp": "./src/Home/index.jsx",
         "./ProductApp": "./src/Product/index.jsx",
+        "./CartApp": "./src/Cart/index.jsx",
         "./CheckoutApp": "./src/Checkout/index.jsx"
       },
       shared: {

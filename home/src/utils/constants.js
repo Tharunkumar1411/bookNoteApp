@@ -37,3 +37,8 @@ export const responsiveLike = {
       items: 1 
     }
 };
+
+export const DELIVERY_TYPE = {
+  PAY: "pay",
+  FREE:"free"
+}

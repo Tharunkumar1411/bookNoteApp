@@ -10,8 +10,6 @@ import CustomButton from "../components/CustomButton";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CustomCarousel from "../components/CustomCarousel";
 import NewDropCard from "../components/NewDropCard";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../router/routes";
 
@@ -40,7 +38,7 @@ export default function Product(){
     };
 
     const handleBuy = () => {
-        navigate(`${ROUTES.CHEKOUT}/2`);
+        navigate(`${ROUTES.CART}/2`);
     }
     
     return(
