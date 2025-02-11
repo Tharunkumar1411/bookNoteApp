@@ -2,8 +2,16 @@ import React from "react";
 import { Typography } from "@mui/material";
 import styles from "./styles.module.scss";
 import CustomButton from "../CustomButton";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../router/routes";
 
 const OrderSummaryCard = () => {
+    const navigate = useNavigate();
+
+    const handleSummary = () => {
+         navigate(`${ROUTES.CHEKOUT}/2`);
+    }
+    
     return (
         <div className={styles.summaryCard}>
             <Typography className={styles.header} sx={{padding:"16px"}}>Order Summary</Typography>
@@ -24,7 +32,7 @@ const OrderSummaryCard = () => {
                     <Typography className={styles.header}>Total</Typography>
                     <Typography className={styles.header}>$1340</Typography>
                 </div>
-                <CustomButton children="CHECKOUT" sx={{backgroundColor:"#000", color: "#fff", width:"100%"}}/>
+                <CustomButton onClick={handleSummary} children="CHECKOUT" sx={{backgroundColor:"#000", color: "#fff", width:"100%"}}/>
             </div>
         </div>
     )
