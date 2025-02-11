@@ -1,15 +1,22 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import categoryOne from "../assets/images/categoryOne.png"
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import CustomButton from "../components/CustomButton";
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function Checkout(){
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const [quantity, setQuantity] = useState(1);
+
+    const handleQuantity = (val) => {
+        if(quantity !== 1 || val !== -1){
+            setQuantity(prev => prev + val)
+        }
+    }
 
     return(
         <div className={styles.rootContainer}>
@@ -38,8 +45,10 @@ export default function Checkout(){
                                             <label className={styles.label}>Shoe brands description </label>
                                        
                                             <div className={styles.sizeContainer}>
-                                                <div className={styles.label}>Size 10 <KeyboardArrowDownIcon style={{position:"relative", top:"5px"}}/></div>
-                                                <div className={styles.label}>Quantity 1 <KeyboardArrowDownIcon style={{position:"relative", top:"5px"}}/></div>
+                                                <div className={styles.label}>Size 10 </div>
+                                                <div className={styles.label}>
+                                                    Quantity {quantity} <AddIcon onClick={() => handleQuantity(1)} fontSize="small" style={{position:"relative", top:"5px"}}/> <RemoveIcon onClick={() => handleQuantity(-1)} fontSize="small" style={{position:"relative", top:"5px"}}/>
+                                                </div>
                                             </div>
 
                                             {!isMobile && <DeleteForeverOutlinedIcon fontSize="large" style={{marginTop:"5px",}}/>}
@@ -57,7 +66,7 @@ export default function Checkout(){
                 </div>
 
                 <div className={styles.summaryCard}>
-                    <Typography className={styles.header}>Order Summary</Typography>
+                    <Typography className={styles.header} sx={{padding:"16px"}}>Order Summary</Typography>
                     <div className={styles.summaryContent}>
                         <div className={styles.summaryRow}>
                             <Typography className={styles.label}>1 Item</Typography>

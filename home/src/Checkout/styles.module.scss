@@ -49,7 +49,7 @@
                 
                 .subDetailsContainer{
                     @include flexRow;
-                    gap: 20px;
+                    gap: 10px;
                     
                     @media screen and (max-width: 768px) {
                       @include flexCol;
@@ -73,6 +73,7 @@
                         .sizeContainer{
                             @include flexRow;
                             gap: 20px;
+                            align-items: flex-end;
                         }
                 
                         .label{
@@ -148,9 +149,8 @@
             opacity: 0px;
 
             @media screen and (max-width: 768px) {
-                width: 358px;
+                width: 100%;
                 height: fit-content;
-                padding: 16px;
                 gap: 16px;
                 border-radius: 16px;
                 opacity: 0px;
@@ -160,11 +160,12 @@
             .summaryContent{
                 @include flexCol;
                 gap: 20px;
+                padding: 16px;
 
                 .summaryRow{
                     @include flexRow;
                     justify-content: space-between;
-
+                    
                     .header{
                         font-family: "RubikSemiBold";
                         font-size: 32px;
