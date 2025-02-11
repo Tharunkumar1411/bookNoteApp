@@ -60,6 +60,7 @@ module.exports = (_, argv) => ({
       exposes: {
         "./HomeApp": "./src/Home/index.jsx",
         "./ProductApp": "./src/Product/index.jsx",
+        "./CartApp": "./src/Cart/index.jsx",
         "./CheckoutApp": "./src/Checkout/index.jsx"
       },
       shared: {

@@ -8,8 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { GENDERS, REGISTER_DETAILS, allowAlphabets } from "../../utils/constants";
 import JoinCard from "../../components/JoinCard";
 import { handleAppleAuth, handleEmailAuth, handleFbAuth, handleGoogleAuth } from "../../utils/auth";
-import { useEffect, useState } from "react";
-import firebaseApp, { auth } from "../../firebase";
+import { useState } from "react";
 import { ROUTES } from "../../router/routes";
 import { useNavigate } from "react-router-dom";
 

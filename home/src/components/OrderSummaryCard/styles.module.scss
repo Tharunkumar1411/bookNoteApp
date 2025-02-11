@@ -1,0 +1,60 @@
+@import "../../styles/mixins.scss";
+
+.summaryCard{
+    width: 418px;
+    height: fit-content;
+    gap: 24px;
+    opacity: 0px;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        height: fit-content;
+        gap: 16px;
+        border-radius: 16px;
+        opacity: 0px;
+        background-color: #fff;
+    }
+
+    .summaryContent{
+        @include flexCol;
+        gap: 20px;
+        padding: 16px;
+
+        .summaryRow{
+            @include flexRow;
+            justify-content: space-between;
+            
+            .header{
+                font-family: "RubikSemiBold";
+                font-size: 32px;
+                font-weight: 600;
+                color: #232321;
+
+                @media screen and (max-width: 768px) {
+                   font-size: 16px;
+                }
+            }
+
+            .label{
+                font-family: "SansRegular";
+                font-size: 20px;
+                font-weight: 600;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .header{
+        font-family: "RubikSemiBold";
+        font-size: 32px;
+        font-weight: 600;
+        color: #232321;
+
+        @media screen and (max-width: 768px) {
+           font-size: 16px;
+        }
+    }
+
+}

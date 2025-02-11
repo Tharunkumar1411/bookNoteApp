@@ -4,11 +4,12 @@ import Layout from './Layout';
 import { ROUTES } from './routes';
 import Loader from '../components/Loader';
 import NotFound from '../pages/NotFound';
+import CheckoutPage from '../pages/Checkout';
 
 // Lazy load the pages
 const Application = React.lazy(() => import('../pages/Application'));
 const ProductPage = React.lazy(() => import('../pages/Product'));
-const CheckoutPage = React.lazy(() => import('../pages/Checkout'));
+const CartPage = React.lazy(() => import('../pages/Cart'));
 const Register = React.lazy(() => import('../pages/Register'));
 const Login = React.lazy(() => import('../pages/Login'));
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
             <Route element={<Layout />}>
                 <Route path={ROUTES.HOME} element={<Application />} />
                 <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
+                <Route path={ROUTES.CART} element={<CartPage />} />
                 <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path={ROUTES.REGISTER} element={<Register />} />
