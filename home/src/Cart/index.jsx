@@ -32,8 +32,8 @@ export default function Cart(){
                     <Typography className={styles.header}>Your Bag</Typography>
                     <span>Items in your bag not reserved- check out now to make them yours.</span>
                     
-                    <div style={{marginTop: "48px", display:"flex", flexDirection:"column", gap:"20px"}}>
-                        {[1,2].map((item) => (
+                    <div style={{display:"flex", flexDirection:"column", gap:"20px", marginTop:"20px"}}>
+                        {[1].map((item) => (
                             <div className={styles.detailsContainer}>
                                 <img 
                                     src={categoryOne} 

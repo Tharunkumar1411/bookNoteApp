@@ -32,7 +32,7 @@
         gap: 47px;
         align-items: flex-start;
         margin: 20px;
-
+        
         @media screen and (max-width: 768px) {
             @include flexCol;
         }
@@ -40,8 +40,12 @@
         .productCard{
             background-color: #fff;
             border-radius: 16px;
-            padding: 24px;
-            width: fit-content;
+            padding: 20px;
+            width: 50%;
+
+            @media screen and (max-width: 768px) {
+                width: fit-content;
+            }
 
             .detailsContainer{
                 @include flexRow;
@@ -50,15 +54,18 @@
                 .subDetailsContainer{
                     @include flexRow;
                     gap: 10px;
-                    
+                    justify-content: space-between;
+                    width: 100%;
+
                     @media screen and (max-width: 768px) {
                       @include flexCol;
+                      justify-content: none;
                     }
 
                     .productHeader{
                         @include flexCol;
                         gap: 10px;
-                        
+
                         .header{
                             font-family: "RubikSemiBold";
                             font-size: 32px;
@@ -74,18 +81,25 @@
                             @include flexRow;
                             gap: 20px;
                             align-items: flex-end;
-                        }
-                
-                        .label{
-                            font-family: "SansRegular";
-                            font-size: 20px;
-                            font-weight: 600;
-                            color: #232321;
-    
-                            @media screen and (max-width: 768px) {
-                                font-size: 12px;
+                            flex-wrap: wrap;
+
+                            @media screen and (max-width: 320px) {
+                                gap: 0px;
+                            }
+
+                            .label{
+                                font-family: "SansRegular";
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: #232321;
+        
+                                @media screen and (max-width: 768px) {
+                                    font-size: 10px;
+                                }
                             }
                         }
+                
+                        
                     }
                 }
 

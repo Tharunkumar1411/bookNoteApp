@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import styles from "./styles.module.scss";
 import CustomButton from "../CustomButton";
 import { useNavigate } from "react-router-dom";
@@ -7,14 +7,18 @@ import { ROUTES } from "../../router/routes";
 
 const OrderSummaryCard = () => {
     const navigate = useNavigate();
-
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));    
+    
     const handleSummary = () => {
          navigate(`${ROUTES.CHEKOUT}/2`);
     }
     
     return (
         <div className={styles.summaryCard}>
-            <Typography className={styles.header} sx={{padding:"16px"}}>Order Summary</Typography>
+            <Typography className={styles.header} sx={(isMobile) ? {
+                padding: "16px"
+            }: {padding: "0 16px"}}>Order Summary</Typography>
             <div className={styles.summaryContent}>
                 <div className={styles.summaryRow}>
                     <Typography className={styles.label}>1 Item</Typography>
@@ -32,7 +36,7 @@ const OrderSummaryCard = () => {
                     <Typography className={styles.header}>Total</Typography>
                     <Typography className={styles.header}>$1340</Typography>
                 </div>
-                <CustomButton onClick={handleSummary} children="CHECKOUT" sx={{backgroundColor:"#000", color: "#fff", width:"100%"}}/>
+                <CustomButton onClick={handleSummary} children="CHECKOUT" sx={{backgroundColor:"#000", color: "#fff", width:"100%", marginTop:"15px"}}/>
             </div>
         </div>
     )
