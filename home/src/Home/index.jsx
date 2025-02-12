@@ -88,7 +88,7 @@ const Home = () => {
             <div className={styles.newDropContainer}>
                 <div className={styles.dropContent}>
                     <Typography className={styles.header}>Don’t miss out new drops</Typography>
-                    <button className={styles.button}>SHOP NEW DROPS</button>
+                    <button className={styles.button}>VIEW MORE</button>
                 </div>
                 
                 <NewDropCard />

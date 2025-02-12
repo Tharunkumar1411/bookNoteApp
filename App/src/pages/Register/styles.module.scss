@@ -13,6 +13,7 @@
 
     .registerContainer{
         @include flexCol;
+        margin: 20px;
 
         @media screen and (min-width: 768px) {
             padding: 0px 40px;
@@ -78,10 +79,10 @@
                 border-radius: 8px;
                 border: 1px solid var(--Dark-Gray, #232321);
                 height: 48px;
-                width: 480px;
+                width: 100%;
 
                 @media screen and (max-width: 768px) {
-                    width: 348px;
+                    width: 100%;
                 }
             }
 
@@ -93,12 +94,8 @@
                 font-weight: 400;
                 line-height: normal;
                 letter-spacing: 0.4px;
-                width: 480px;
+                width: 100%;
                 margin-top: 0.2rem;
-
-                @media screen and (max-width: 768px) {
-                    width: 348px;
-                }
             }
 
             .registerBtn{
