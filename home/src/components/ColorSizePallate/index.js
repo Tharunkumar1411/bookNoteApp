@@ -6,10 +6,6 @@ const ColorSizePallate = ({data, selectedPallate}) => {
     const [selectedItem, setSelectedItem] = useState({color:`${data?.color?.[0]}`, size: data?.size?.[0]});
     let pallate = selectedPallate;
 
-    const handleColorClick = (item) => {
-       
-    };
-
     return(
         <div className={styles.rootContainer}>
             <div className={styles.colorContainer}>
@@ -20,7 +16,8 @@ const ColorSizePallate = ({data, selectedPallate}) => {
                             border:`2px solid ${item}`,
                             padding: '5px',
                             borderRadius: "25px",
-                        }: {alignSelf: "center"}}>
+                            outline:"none"
+                        }: {alignSelf: "center", outline:"none"}}>
                             <div className={styles.pallate} style={{backgroundColor: item, }}/>
                         </div>
                     ))}
