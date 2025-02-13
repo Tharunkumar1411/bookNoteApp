@@ -69,7 +69,7 @@ const Home = () => {
 
     return (
         <div>
-            <div className={styles.bannerContainer} style={{backgroundImage: `url(${backgroundImage})`}}>
+            <div className={styles.bannerContainer} style={{backgroundImage: `url(https://kicks-gallery.s3.ap-south-1.amazonaws.com/homeBanner.png)`}}>
 
                 <div className={styles.bannerContentContainer}>
                     <div className={styles.bannerContent}>
