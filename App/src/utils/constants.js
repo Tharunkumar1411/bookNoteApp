@@ -2,7 +2,7 @@ import {object, string } from "yup";
 
 export const NavItems = ["New Drops 🔥", "Men", "Women"]
 
-export const KEYCHAIN = "kicks_key"
+export const KEYCHAIN = "kicks_key";
 
 export const GENDERS = [
   {
