@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import preview from "../assets/images/cartPreview/preview.svg"
-import previewTwo from "../assets/images/cartPreview/previewTwo.svg"
-import previewThree from "../assets/images/cartPreview/previewThree.svg"
-import previewFour from "../assets/images/cartPreview/previewFour.svg"
+import preview from "../../assets/images/cartPreview/preview.svg"
+import previewTwo from "../../assets/images/cartPreview/previewTwo.svg"
+import previewThree from "../../assets/images/cartPreview/previewThree.svg"
+import previewFour from "../../assets/images/cartPreview/previewFour.svg"
 import { Typography, useMediaQuery } from "@mui/material";
-import ColorSizePallate from "../components/ColorSizePallate";
-import CustomButton from "../components/CustomButton";
+import ColorSizePallate from "../../components/ColorSizePallate";
+import CustomButton from "../../components/CustomButton";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import CustomCarousel from "../components/CustomCarousel";
-import NewDropCard from "../components/NewDropCard";
+import CustomCarousel from "../../components/CustomCarousel";
+import NewDropCard from "../../components/NewDropCard";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../router/routes";
+import { ROUTES } from "../../router/routes";
 
 export default function Product(){
     const isMobile = useMediaQuery("(max-width:1024px)");

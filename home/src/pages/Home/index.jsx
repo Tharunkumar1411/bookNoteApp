@@ -1,26 +1,25 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import styles from "./styles.module.scss";
-import backgroundImage from "../assets/images/homeBanner.svg"
-import previewBgOne from "../assets/images/previewOne.svg"
-import previewBgTwo from "../assets/images/previewTwo.svg"
-import NewDropCard from "../components/NewDropCard";
-import ReviewCard from "../components/ReviewCard";
-import reviewPersonOne from "../assets/images/reviewPersonOne.svg";
-import reviewOne from "../assets/images/reviewOne.svg"
-import reviewPersonTwo from "../assets/images/reviewPersonTwo.svg";
-import reviewTwo from "../assets/images/reviewTwo.svg"
-import reviewPersonThree from "../assets/images/reviewPersonThree.svg";
-import reviewThree from "../assets/images/reviewThree.svg";
+import previewBgOne from "../../assets/images/previewOne.svg"
+import previewBgTwo from "../../assets/images/previewTwo.svg"
+import NewDropCard from "../../components/NewDropCard";
+import ReviewCard from "../../components/ReviewCard";
+import reviewPersonOne from "../../assets/images/reviewPersonOne.svg";
+import reviewOne from "../../assets/images/reviewOne.svg"
+import reviewPersonTwo from "../../assets/images/reviewPersonTwo.svg";
+import reviewTwo from "../../assets/images/reviewTwo.svg"
+import reviewPersonThree from "../../assets/images/reviewPersonThree.svg";
+import reviewThree from "../../assets/images/reviewThree.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import categoryOne from "../assets/images/categoryOne.png"
-import categoryTwo from "../assets/images/categoryTwo.png"
+import categoryOne from "../../assets/images/categoryOne.png"
+import categoryTwo from "../../assets/images/categoryTwo.png"
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useRef } from "react";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import { responsive } from "../utils/constants";
+import { responsive } from "../../utils/constants";
 
 const reviewData = [
     {

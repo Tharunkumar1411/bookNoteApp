@@ -3,10 +3,10 @@ import React, { Suspense } from "react";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
 
-const Home = React.lazy(() => import("./Home"));
-const Product = React.lazy(() => import("./Product"));
-const Cart = React.lazy(() => import("./Cart"));
-const Checkout = React.lazy(() => import("./Checkout"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Product = React.lazy(() => import("./pages/Product"));
+const Cart = React.lazy(() => import("./pages/Cart"));
+const Checkout = React.lazy(() => import("./pages/Checkout"));
 
 const App = () => {
   return(

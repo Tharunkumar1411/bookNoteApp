@@ -1,12 +1,12 @@
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
-import categoryOne from "../assets/images/categoryOne.png"
+import categoryOne from "../../assets/images/categoryOne.png"
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import NewDropCard from "../components/NewDropCard";
-import OrderSummaryCard from "../components/OrderSummaryCard";
+import NewDropCard from "../../components/NewDropCard";
+import OrderSummaryCard from "../../components/OrderSummaryCard";
 
 export default function Cart(){
     const theme = useTheme();
