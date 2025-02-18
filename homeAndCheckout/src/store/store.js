@@ -1,7 +1,7 @@
 import { createStore, compose } from "redux";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
-import reducers from "./reducers";
+import reducers from "../reducers";
 
 // Redux DevTools integration
 const composeEnhancers =

@@ -1,8 +1,8 @@
-import { HOME_DETAILS } from "./type"
+import { HOME_DETIALS_SUCCESS } from "./type"
 
-export const getHomeDetails = (payload) => {
+export const setHomeDetails = (payload) => {
     return {
-        type: HOME_DETAILS,
+        type: HOME_DETIALS_SUCCESS,
         payload
     }
 }
