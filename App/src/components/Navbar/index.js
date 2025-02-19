@@ -60,7 +60,7 @@ function NavBar() {
             </div>
 
             <div className={styles.logo}>
-                <img src={logoImg} alt="logo" />
+                <img src={logoImg} alt="logo" onClick={() => nav(ROUTES.HOME)}/>
             </div>
 
             <div className={styles.navProfileItems}>

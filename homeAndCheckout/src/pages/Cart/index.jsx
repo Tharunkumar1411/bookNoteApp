@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import categoryOne from "../../assets/images/categoryOne.png"
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
-import RemoveIcon from '@mui/icons-material/Remove';
-// import AddIcon from '@mui/icons-material/Add';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import NewDropCard from "../../components/NewDropCard";
 import OrderSummaryCard from "../../components/OrderSummaryCard";
 
@@ -48,7 +48,7 @@ export default function Cart(){
                                             <div className={styles.sizeContainer}>
                                                 <div className={styles.label}>Size 10 </div>
                                                 <div className={styles.label}>
-                                                    Quantity {quantity} <AddIcon onClick={() => handleQuantity(1)} fontSize="small" style={{position:"relative", top:"5px"}}/> <RemoveIcon onClick={() => handleQuantity(-1)} fontSize="small" style={{position:"relative", top:"5px"}}/>
+                                                    Quantity {quantity} <KeyboardArrowUpIcon onClick={() => handleQuantity(1)} fontSize="medium" style={{position:"relative", top:"5px"}}/> <KeyboardArrowDownIcon onClick={() => handleQuantity(-1)} fontSize="medium" style={{position:"relative", top:"5px"}}/>
                                                 </div>
                                             </div>
 

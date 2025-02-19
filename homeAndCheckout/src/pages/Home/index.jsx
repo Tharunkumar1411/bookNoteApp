@@ -11,7 +11,7 @@ import { useRef } from "react";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { responsive } from "../../utils/constants";
 import { getHomeDetails } from "../../api/home";
-import { setHomeDetails } from "../../store/home.js/action";
+import { setHomeDetails } from "../../store/home/action";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {

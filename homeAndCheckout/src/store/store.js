@@ -1,28 +1,14 @@
-import { createStore, compose } from "redux";
-import storage from "redux-persist/lib/storage";
-import { persistStore, persistReducer } from "redux-persist";
-import reducers from "../reducers";
+import React from "react";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider} from "react-redux";
+import {HomeReducer} from "./home/reducer.js"
 
-// Redux DevTools integration
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+const store = configureStore({
+  reducer: {
+    home: HomeReducer,
+  },
+});
 
-// Persist Redux state
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: [
-    "home",
-  ],
-};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
-
-// Create store with Redux DevTools support
-const store = createStore(persistedReducer, composeEnhancers());
-
-export const persistor = persistStore(store);
-
-export default store;
+export function StoreProvider({ children }) {
+  return <Provider store={store}>{children}</Provider>;
+}
