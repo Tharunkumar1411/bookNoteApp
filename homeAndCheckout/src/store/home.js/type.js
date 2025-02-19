@@ -1,1 +1,0 @@
-export const HOME_DETAILS = "HOME_DETIALS"

@@ -1,36 +1,27 @@
 import React, { Suspense } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import { ROUTES } from './routes';
 import Loader from '../components/Loader';
 import NotFound from '../pages/NotFound';
-import CheckoutPage from '../pages/Checkout';
 
 // Lazy load the pages
-const Application = React.lazy(() => import('../pages/Application'));
-const ProductPage = React.lazy(() => import('../pages/Product'));
-const CartPage = React.lazy(() => import('../pages/Cart'));
+const RemoteHomeApp = React.lazy(() => import("home/HomeApp"));
+const RemoteProductApp = React.lazy(() => import("home/ProductApp"));
+const RemoteCartApp = React.lazy(() => import("home/CartApp"));
+const RemoteCheckoutApp = React.lazy(() => import("home/CheckoutApp"));
 const Register = React.lazy(() => import('../pages/Register'));
 const Login = React.lazy(() => import('../pages/Login'));
 
-const AppRoutes = () => {
-    const nav = useNavigate();
-
-    // useEffect(() => {
-    //     const Token = sessionStorage.getItem("Auth Token");
-    //     if(!Token){
-    //         nav(ROUTES.LOGIN)
-    //     }
-    // }, []);
-    
+const AppRoutes = () => {    
     return (
        <Suspense fallback={<Loader />}>
         <Routes>
             <Route element={<Layout />}>
-                <Route path={ROUTES.HOME} element={<Application />} />
-                <Route path={ROUTES.PRODUCT} element={<ProductPage />} />
-                <Route path={ROUTES.CART} element={<CartPage />} />
-                <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
+                <Route path={ROUTES.HOME} element={<RemoteHomeApp />} />
+                <Route path={ROUTES.PRODUCT} element={<RemoteProductApp />} />
+                <Route path={ROUTES.CART} element={<RemoteCartApp />} />
+                <Route path={ROUTES.CHECKOUT} element={<RemoteCheckoutApp />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path={ROUTES.REGISTER} element={<Register />} />
             </Route>
