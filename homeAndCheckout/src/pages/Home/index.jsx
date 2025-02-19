@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Typography } from "@mui/material";
 import styles from "./styles.module.scss";
 import NewDropCard from "../../components/NewDropCard";
@@ -13,6 +13,7 @@ import { responsive } from "../../utils/constants";
 import { getHomeDetails } from "../../api/home";
 import { setHomeDetails } from "../../store/home/action";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../components/Loader";
 
 const Home = () => {
     const carouselRef = useRef(null);
@@ -31,99 +32,101 @@ const Home = () => {
     };
 
     useEffect(() => {
-        console.log("hittingehre");
         getHomeDetails().then((res) => {
             dispatch(setHomeDetails(res));
         })
     },[]);
 
     return (
-        <div>
-            <div className={styles.bannerContainer} style={{backgroundImage: `url(${homeDetails?.topBanner?.homeBannerUrl})`}}>
+        <Suspense fallback={<Loader />}>
+            <div>
+                <div className={styles.bannerContainer} style={{backgroundImage: `url(${homeDetails?.topBanner?.homeBannerUrl})`}}>
 
-                <div className={styles.bannerContentContainer}>
-                    <div className={styles.bannerContent}>
-                        <Typography className={styles.header}>{homeDetails?.topBanner?.productName}</Typography>
-                        <span className={styles.subHeader}>{homeDetails?.topBanner?.description}</span>
-                        <button className={styles.button}>SHOP NOW</button>
-                    </div>
+                    <div className={styles.bannerContentContainer}>
+                        <div className={styles.bannerContent}>
+                            <Typography className={styles.header}>{homeDetails?.topBanner?.productName}</Typography>
+                            <span className={styles.subHeader}>{homeDetails?.topBanner?.description}</span>
+                            <button className={styles.button}>SHOP NOW</button>
+                        </div>
 
-                    <div className={styles.previewBannerContainer}>
-                        <div className={styles.previewOne} style={{backgroundImage: `url(${homeDetails?.topBanner?.previewUrlOne})`}}/>
-                        <div className={styles.previewTwo} style={{backgroundImage: `url(${homeDetails?.topBanner?.previewUrlTwo})`}}/>
+                        <div className={styles.previewBannerContainer}>
+                            <div className={styles.previewOne} style={{backgroundImage: `url(${homeDetails?.topBanner?.previewUrlOne})`}}/>
+                            <div className={styles.previewTwo} style={{backgroundImage: `url(${homeDetails?.topBanner?.previewUrlTwo})`}}/>
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-            <div className={styles.newDropContainer}>
-                <div className={styles.dropContent}>
-                    <Typography className={styles.header}>Don’t miss out new drops</Typography>
-                    <button className={styles.button}>VIEW MORE</button>
                 </div>
                 
-                <NewDropCard />
-            </div>
-
-            <div className={styles.categoryRoot}>
-                <div className={styles.headerContainer}>
-                    <h3 className={styles.header}>CATEGORIES</h3>
-                    <div className={styles.buttonGroup}>
-                        <ArrowBackIosNewIcon className={styles.arrowBtn} onClick={handlePrevious} />
-                        <ArrowForwardIosIcon className={styles.arrowBtn} onClick={handleNext} />
+                <div className={styles.newDropContainer}>
+                    <div className={styles.dropContent}>
+                        <Typography className={styles.header}>Don’t miss out new drops</Typography>
+                        <button className={styles.button}>VIEW MORE</button>
                     </div>
+                    
+                    <NewDropCard />
                 </div>
 
-                {homeDetails?.categories &&
-                    <div className={styles.categoryContainer}>
-                        <Carousel 
-                            responsive={responsive}
-                            ref={carouselRef}
-                            showDots={false}
-                            arrows={false}
-                        >
-                            {homeDetails?.categories?.map((category, index) => (
-                            <div 
-                                key={index} 
-                                style={{ backgroundImage: `url(${category.url})`, backgroundColor: '' }} 
-                                className={styles.categoryImg}
+                <div className={styles.categoryRoot}>
+                    <div className={styles.headerContainer}>
+                        <h3 className={styles.header}>CATEGORIES</h3>
+                        <div className={styles.buttonGroup}>
+                            <ArrowBackIosNewIcon className={styles.arrowBtn} onClick={handlePrevious} />
+                            <ArrowForwardIosIcon className={styles.arrowBtn} onClick={handleNext} />
+                        </div>
+                    </div>
+
+                    {homeDetails?.categories &&
+                        <div className={styles.categoryContainer}>
+                            <Carousel 
+                                responsive={responsive}
+                                ref={carouselRef}
+                                showDots={false}
+                                arrows={false}
                             >
-                                <div className={styles.categoryTitle}>
-                                    <Typography className={styles.title}>{category.categoryName}</Typography>
-                                    <Typography className={styles.title}>Shoes</Typography>
+                                {homeDetails?.categories?.map((category, index) => (
+                                <div 
+                                    key={index} 
+                                    style={{ backgroundImage: `url(${category.url})`, backgroundColor: '' }} 
+                                    className={styles.categoryImg}
+                                >
+                                    <div className={styles.categoryTitle}>
+                                        <Typography className={styles.title}>{category.categoryName}</Typography>
+                                        <Typography className={styles.title}>Shoes</Typography>
+                                    </div>
+                                    <div className={styles.categoryLink}>
+                                        <ArrowOutwardIcon className={styles.arrowLink} />
+                                    </div>
                                 </div>
-                                <div className={styles.categoryLink}>
-                                    <ArrowOutwardIcon className={styles.arrowLink} />
-                                </div>
-                            </div>
-                            ))}
-                        </Carousel>
-                    </div>
-                }
-            </div>
-            
-            
-
-            <div className={styles.newDropContainer}>
-                <div className={styles.dropContent}>
-                    <Typography className={styles.header}>Reviews</Typography>
-                    <button className={styles.button}>SEE ALL</button>
+                                ))}
+                            </Carousel>
+                        </div>
+                    }
                 </div>
                 
-                <div className={styles.reviewRootContainer}>
-                    {homeDetails?.review?.map((review, index) => (
-                        <ReviewCard
-                            key={index}
-                            title={review.reviewTitle}
-                            subText={review.reviewContent}
-                            personImg={review.personImgUrl}
-                            reviewImg={review.productUrl}
-                            rating={review.rate}
-                        />
-                    ))}
+                
+
+                <div className={styles.newDropContainer}>
+                    <div className={styles.dropContent}>
+                        <Typography className={styles.header}>Reviews</Typography>
+                        <button className={styles.button}>SEE ALL</button>
+                    </div>
+                    
+                    <div className={styles.reviewRootContainer}>
+                        {homeDetails?.review?.map((review, index) => (
+                            <ReviewCard
+                                key={index}
+                                title={review.reviewTitle}
+                                subText={review.reviewContent}
+                                personImg={review.personImgUrl}
+                                reviewImg={review.productUrl}
+                                rating={review.rate}
+                            />
+                        ))}
+                    </div>
+                
                 </div>
-               
             </div>
-        </div>
+        </Suspense>
+
     );
 };
 
