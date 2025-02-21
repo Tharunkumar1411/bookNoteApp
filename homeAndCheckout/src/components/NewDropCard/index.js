@@ -3,11 +3,11 @@ import { Typography } from "@mui/material";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../router/routes";
-import { useSelector } from "react-redux";
+import useHomeStore from "../../store/home";
 
 const NewDropCard = () => {
     const navigate = useNavigate();
-    const homeDetails = useSelector(state => state.home.homeDetails);
+    const homeDetails = useHomeStore((state) => state.homeDetails);
     
     const handleProduct = (productId) => {
         navigate(`${ROUTES.PRODUCT}/${productId}`);
@@ -29,7 +29,7 @@ const NewDropCard = () => {
                     </div>
 
                     <Typography className={styles.productName}>{item.productName}</Typography>
-                    <button onClick={() => handleProduct(item.id)} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.price}</span></button>
+                    <button onClick={() => handleProduct(item.productId)} className={styles.productButton}>View Product - <span style={{color: "#FFA52F"}}>{item.price}</span></button>
                 </div>  
             ))}
         </div>

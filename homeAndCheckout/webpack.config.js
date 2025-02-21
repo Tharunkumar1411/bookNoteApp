@@ -8,8 +8,8 @@ module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    // publicPath: 'https://kicks-home.vercel.app/',
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'https://kicks-home.vercel.app/',
+    // publicPath: 'http://localhost:8080/'
   },
 
   resolve: {
@@ -63,7 +63,6 @@ module.exports = (_, argv) => ({
         "./ProductApp": "./src/pages/Product/index.jsx",
         "./CartApp": "./src/pages/Cart/index.jsx",
         "./CheckoutApp": "./src/pages/Checkout/index.jsx",
-        "./Store": "./src/store/store.js"
       },
       shared: {
         ...deps,

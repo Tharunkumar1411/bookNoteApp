@@ -11,14 +11,14 @@ import { useRef } from "react";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { responsive } from "../../utils/constants";
 import { getHomeDetails } from "../../api/home";
-import { setHomeDetails } from "../../store/home/action";
-import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
+import useHomeStore from "../../store/home";
 
 const Home = () => {
     const carouselRef = useRef(null);
-    const homeDetails = useSelector(state => state.home.homeDetails);
-    const dispatch = useDispatch();
+    const setHomeDetails = useHomeStore((state) => state.setHomeDetails);
+    const homeDetails = useHomeStore((state) => state.homeDetails);
+
     const handleNext = () => {
       if (carouselRef.current) {
         carouselRef.current.next();
@@ -33,8 +33,8 @@ const Home = () => {
 
     useEffect(() => {
         getHomeDetails().then((res) => {
-            dispatch(setHomeDetails(res));
-        })
+            setHomeDetails(res);
+        });
     },[]);
 
     return (
