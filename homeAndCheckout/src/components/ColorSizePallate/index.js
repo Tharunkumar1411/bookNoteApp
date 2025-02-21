@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { colors, Radio, RadioGroup } from "@mui/material";
 import styles from "./styles.module.scss"
 
-const ColorSizePallate = ({data, selectedPallate}) => {
-    const [selectedItem, setSelectedItem] = useState({color:`${data?.color?.[0]}`, size: data?.size?.[0]});
-    let pallate = selectedPallate;
+const ColorSizePallate = ({data, setSelectedItem, selectedItem}) => {    
+    useEffect(() => {
+        setSelectedItem({...selectedItem, color:data?.availableColors?.[0], size: data?.availableSize?.[0] })
+    },[]);
 
     return(
         <div className={styles.rootContainer}>
             <div className={styles.colorContainer}>
                 <p className={styles.pallateHeader}>Color</p>
                 <div className={styles.pallateContainer}>
-                    {data?.color?.map((item) => (
+                    {data?.availableColors?.map((item) => (
                         <div onClick={() => setSelectedItem({...selectedItem, color: item})} style={(selectedItem.color === item) ? {
                             border:`2px solid ${item}`,
                             padding: '5px',
@@ -27,7 +28,7 @@ const ColorSizePallate = ({data, selectedPallate}) => {
             <div className={styles.sizeContainer}>
                 <p className={styles.pallateHeader}>Size</p>
                 <div className={styles.pallateContainer}>
-                    {data?.size?.map((item) => (
+                    {data?.availableSize?.map((item) => (
                         <div onClick={() => setSelectedItem({...selectedItem, size: item})} style={item === selectedItem.size ? {
                             backgroundColor: '#000',
                             color: '#fff',

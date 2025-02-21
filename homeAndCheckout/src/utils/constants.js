@@ -68,3 +68,5 @@ export const CHECKOUT_DETAILS = {
     number: string().required("Required").nullable(),
   }),
 };
+
+export const REGX_FORMET_AMOUNT = /\B(?=(?:(\d\d)+(\d)(?!\d))+(?!\d))/g;

@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from './styles.module.scss'
 
 function CustomCarousel({data}){
+    console.log("adara carousel", data)
     return(
         <Carousel showArrows={false} showStatus={false} className={styles.carouselContainer}>
             {data?.previewImg?.map((item) => (

@@ -7,11 +7,13 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import NewDropCard from "../../components/NewDropCard";
 import OrderSummaryCard from "../../components/OrderSummaryCard";
+import { useParams } from "react-router-dom";
 
 export default function Cart(){
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [quantity, setQuantity] = useState(1);
+    const { id } = useParams();
 
     const handleQuantity = (val) => {
         if(quantity !== 1 || val !== -1){
