@@ -1,0 +1,101 @@
+@import "../../styles/mixins.scss";
+
+.rootContainer{
+    margin: 20px;
+    .topBanner{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 24px;
+        @media screen and (max-width: 768px) {
+
+        }
+
+        .bannerContent{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 110px 0 110px 50px;
+            @media screen and (max-width: 768px) {
+                padding: 30px;
+            }
+            .label{
+                font-family: "SansRegular";
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 32.68px;
+                letter-spacing: 0%;
+                width: 490px;
+                color: #E7E7E3;
+                @media screen and (max-width: 768px) {
+                    font-size: 14px;
+                    line-height: 16.34px;
+                    width: 210px;
+                }
+            }
+
+            .header{
+                font-family: "RubikSemiBold";
+                font-weight: 600;
+                font-size: 74px;
+                line-height: 87.69px;
+                letter-spacing: 0%;
+                color: #fff;
+                @media screen and (max-width: 768px) {
+                    font-size: 20px;
+                    line-height: 23.7px;
+                }
+            }
+        }
+    }
+
+    .catergoryContainer{
+        @include flexRow;
+        justify-content: space-between;
+        margin-top: 20px;
+        .category{
+            @include flexCol;
+            font-family: "RubikSemiBold";
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 42.66px;
+            letter-spacing: 0%;
+
+            .label{
+                font-family: "SansRegular";
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 21.79px;
+                letter-spacing: 0%;
+            }
+        }
+
+        .categoryBtn{
+            border-radius: 16px;
+            gap: 16px;
+            font-family: "RubikSemiBold";
+            font-weight: 600;
+            font-size: 16px;
+            background-color: #F4F2F2;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .categoryList{
+            color: #000;
+            background-color:#F4F2F2;
+            width: 100%;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+            padding: 10px 0;
+        }
+    }
+}
