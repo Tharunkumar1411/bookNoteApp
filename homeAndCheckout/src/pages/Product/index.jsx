@@ -28,11 +28,11 @@ export default function Product(){
     },[]);
 
     const handleBuy = (productId) => {
-        navigate(`${ROUTES.CART}/${productId}`);
+        navigate(`${ROUTES.CHEKOUT}/${productId}`);
     }
 
     const handleAddToCart = () => {
-
+        
     }
 
     const handleFav = () => {
