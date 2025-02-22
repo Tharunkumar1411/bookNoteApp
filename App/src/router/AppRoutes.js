@@ -10,6 +10,7 @@ const RemoteHomeApp = React.lazy(() => import("home/HomeApp"));
 const RemoteProductApp = React.lazy(() => import("home/ProductApp"));
 const RemoteCartApp = React.lazy(() => import("home/CartApp"));
 const RemoteCheckoutApp = React.lazy(() => import("home/CheckoutApp"));
+const RemoteProductListApp = React.lazy(() => import("home/ProductListApp"));
 const Register = React.lazy(() => import('../pages/Register'));
 const Login = React.lazy(() => import('../pages/Login'));
 
@@ -24,6 +25,7 @@ const AppRoutes = () => {
                 <Route path={ROUTES.CHECKOUT} element={<RemoteCheckoutApp />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path={ROUTES.REGISTER} element={<Register />} />
+                <Route path={ROUTES.PRODUCT_LIST} element={<RemoteProductListApp />} />
             </Route>
             <Route path="*" element={<NotFound />} />
         </Routes>

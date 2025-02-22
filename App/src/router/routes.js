@@ -5,5 +5,6 @@ export const ROUTES = {
     PRODUCT: `/product/:id`,
     CART: `/cart/:id`,
     CHECKOUT: `/checkout/:id`,
-    NOT_FOUND: `/notFound`
+    PRODUCT_LIST: `/product-list/:id`,
+    NOT_FOUND: `/notFound`,
 }
