@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { FormControl, InputBase, NativeSelect, styled, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import productBanner from "../../assets/images/productBanner.png";
 import styles from "./styles.module.scss";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import DoneIcon from '@mui/icons-material/Done';
 export default function ProductList(){
     const [category, setCategory] = useState("Life Style");
+    const [showMenu, setShowMenu] = useState(false);
 
     const handleCateogry = () => {
+        setShowMenu(prev => !prev);
+    }
 
+    const handleCateogrySelection = (category) => {
+        setCategory(category);
+        handleCateogry()
     }
 
     return(
@@ -25,13 +31,16 @@ export default function ProductList(){
                 <Typography className={styles.category}>Life Style Shoes <label className={styles.label}>122 item</label></Typography>
                 <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>
                     <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>
-                    <div className={styles.categoryList}>
-                        <div>
-                            {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
-                                <Typography>{item}</Typography>
-                            ))}
+                    
+                    {showMenu &&
+                        <div className={styles.categoryList}>
+                            <div style={{width:"100%", textAlign:"center"}}>
+                                {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
+                                    <Typography onClick={() => handleCateogrySelection(item)} className={styles.menuText} style={(category === item) ? {fontWeight: "800"}: {}}> {item}<hr /></Typography>                                
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
                
             </div>

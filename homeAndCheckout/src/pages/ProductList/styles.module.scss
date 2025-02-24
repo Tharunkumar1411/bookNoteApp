@@ -7,9 +7,6 @@
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 24px;
-        @media screen and (max-width: 768px) {
-
-        }
 
         .bannerContent{
             display: flex;
@@ -60,13 +57,21 @@
             font-size: 36px;
             line-height: 42.66px;
             letter-spacing: 0%;
+            
+            @media screen and (max-width: 768px) {
+                font-size: 16px;
+                line-height: none;
+            }
 
             .label{
                 font-family: "SansRegular";
                 font-weight: 600;
                 font-size: 16px;
-                line-height: 21.79px;
-                letter-spacing: 0%;
+                line-height: 9.79px;
+
+                @media screen and (max-width: 768px) {
+                    font-weight: 400;
+                }
             }
         }
 
@@ -75,7 +80,7 @@
             gap: 16px;
             font-family: "RubikSemiBold";
             font-weight: 600;
-            font-size: 16px;
+            font-size: 26px;
             background-color: #F4F2F2;
             border: none;
             display: flex;
@@ -84,6 +89,10 @@
             align-self: center;
             padding: 10px 20px;
             cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+            }
         }
 
         .categoryList{
@@ -95,7 +104,24 @@
             align-items: center;
             justify-content: center;
             align-self: center;
-            padding: 10px 0;
+            padding: 10px 0 0 0;
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+            }
+            .menuText{
+                cursor: pointer;
+                font-family: "RubikSemiBold";
+                font-weight: 400;
+                font-size: 16px;
+                letter-spacing: 0%;
+                @media screen and (max-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+
+            .menuText:hover {
+                font-weight: 800;
+            }
         }
     }
 }
