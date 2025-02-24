@@ -105,6 +105,7 @@
             justify-content: center;
             align-self: center;
             padding: 10px 0 0 0;
+
             @media screen and (max-width: 768px) {
                 font-size: 14px;
             }
@@ -122,6 +123,21 @@
             .menuText:hover {
                 font-weight: 800;
             }
+        }
+    }
+
+    .filterContainer{
+        @include flexRow;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 40px;
+
+        .filter{
+            width: 30%;
+        }
+
+        .productContainer {
+            width: 70%;
         }
     }
 }

@@ -3,10 +3,13 @@ import { Typography } from "@mui/material";
 import productBanner from "../../assets/images/productBanner.png";
 import styles from "./styles.module.scss";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import DoneIcon from '@mui/icons-material/Done';
+import FilterComponent from "../../components/FilterComponent";
+import NewDropCard from "../../components/NewDropCard"
+
 export default function ProductList(){
     const [category, setCategory] = useState("Life Style");
     const [showMenu, setShowMenu] = useState(false);
+    const [filter, setFilter] = useState({color: "", size: "", categories: [], gender: [], price: ""})
 
     const handleCateogry = () => {
         setShowMenu(prev => !prev);
@@ -42,7 +45,15 @@ export default function ProductList(){
                         </div>
                     }
                 </div>
-               
+            </div>
+
+            <div className={styles.filterContainer}>
+                <div className={styles.filter}>
+                    <FilterComponent filter={filter} setFilter={setFilter}/>
+                </div>
+                <div className={styles.productContainer}>
+                    <NewDropCard />
+                </div>
             </div>
         </div>
     )
