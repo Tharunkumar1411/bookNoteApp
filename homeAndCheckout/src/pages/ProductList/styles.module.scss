@@ -2,6 +2,32 @@
 
 .rootContainer{
     margin: 20px;
+    .categoryBtn{
+        border-radius: 16px;
+        gap: 16px;
+        font-family: "RubikSemiBold";
+        font-weight: 600;
+        font-size: 26px;
+        background-color: #F4F2F2;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    .filterBtnContainer{
+        @include flexRow;
+        width: 100%;
+        gap: 20px;
+        margin-top: 20px;
+    }
     .topBanner{
         background-size: cover;
         background-position: center;
@@ -58,40 +84,11 @@
             line-height: 42.66px;
             letter-spacing: 0%;
             
-            @media screen and (max-width: 768px) {
-                font-size: 16px;
-                line-height: none;
-            }
-
             .label{
                 font-family: "SansRegular";
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 9.79px;
-
-                @media screen and (max-width: 768px) {
-                    font-weight: 400;
-                }
-            }
-        }
-
-        .categoryBtn{
-            border-radius: 16px;
-            gap: 16px;
-            font-family: "RubikSemiBold";
-            font-weight: 600;
-            font-size: 26px;
-            background-color: #F4F2F2;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: center;
-            padding: 10px 20px;
-            cursor: pointer;
-
-            @media screen and (max-width: 768px) {
-                font-size: 14px;
             }
         }
 
@@ -132,12 +129,31 @@
         width: 100%;
         margin-top: 40px;
 
+        @media screen and (max-width: 768px) {
+            @include flexCol
+        }
+
         .filter{
             width: 30%;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
         }
 
         .productContainer {
             width: 70%;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    }
+    
+    .drawerContainer{
+        padding: 20px;
+        
+        .drawerHeader{
+            @include flexRow;
+            justify-content: space-between;
         }
     }
 }
