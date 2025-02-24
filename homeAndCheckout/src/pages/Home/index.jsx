@@ -13,11 +13,14 @@ import { responsive } from "../../utils/constants";
 import { getHomeDetails } from "../../api/home";
 import Loader from "../../components/Loader";
 import useHomeStore from "../../store/home";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../router/routes";
 
 const Home = () => {
     const carouselRef = useRef(null);
     const setHomeDetails = useHomeStore((state) => state.setHomeDetails);
     const homeDetails = useHomeStore((state) => state.homeDetails);
+    const nav = useNavigate();
 
     const handleNext = () => {
       if (carouselRef.current) {
@@ -59,7 +62,7 @@ const Home = () => {
                 <div className={styles.newDropContainer}>
                     <div className={styles.dropContent}>
                         <Typography className={styles.header}>Don’t miss out new drops</Typography>
-                        <button className={styles.button}>VIEW MORE</button>
+                        <button className={styles.button} onClick={() => nav(`${ROUTES.PRODUCT_LIST}`)}>VIEW MORE</button>
                     </div>
                     
                     <NewDropCard />

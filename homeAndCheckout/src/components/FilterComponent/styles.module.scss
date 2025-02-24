@@ -1,0 +1,35 @@
+@import "../../styles/mixins.scss";
+
+.rootContainer{
+    @include flexCol;
+    gap: 20px;
+
+    .header{
+        font-family: "RubikSemiBold";
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18.96px;
+        letter-spacing: 0%;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    .dropMenu{
+        @include flexRow;
+        justify-content: space-between;
+    }
+    .categoryContainer{
+        .category{
+            @include flexCol;
+        }
+    }
+
+    .filterBtn{
+        @include flexRow;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+}
