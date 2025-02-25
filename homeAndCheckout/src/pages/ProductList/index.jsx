@@ -51,8 +51,20 @@ export default function ProductList(){
             </div>
 
             <div className={styles.filterBtnContainer}>
-                {isMobile && <button onClick={handleFilter} className={styles.categoryBtn}>Filter <FilterListIcon /></button>}
                 {isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
+                {isMobile && <button onClick={handleFilter} className={styles.categoryBtn}>Filter <FilterListIcon /></button>}
+            </div>
+
+            <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>                    
+                {showMenu && isMobile &&
+                    <div className={styles.categoryList}>
+                        <div style={{width:"100%", textAlign:"center"}}>
+                            {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
+                                <Typography onClick={() => handleCateogrySelection(item)} className={styles.menuText} style={(category === item) ? {fontWeight: "800"}: {}}> {item}<hr /></Typography>                                
+                            ))}
+                        </div>
+                    </div>
+                }
             </div>
 
             <div className={styles.catergoryContainer}>
@@ -61,7 +73,7 @@ export default function ProductList(){
                 <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>
                     {!isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
                     
-                    {showMenu &&
+                    {showMenu && !isMobile &&
                         <div className={styles.categoryList}>
                             <div style={{width:"100%", textAlign:"center"}}>
                                 {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
