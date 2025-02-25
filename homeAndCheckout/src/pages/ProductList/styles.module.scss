@@ -22,6 +22,40 @@
         }
     }
 
+    .categoryList{
+        color: #000;
+        background-color:#F4F2F2;
+        width: 100%;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        padding: 10px 0 0 0;
+
+        @media screen and (max-width: 768px) {
+            font-size: 14px;
+            width: max-content;
+            padding: 10px 40px;
+            align-self: flex-start;
+            margin-top: 20px;
+        }
+        .menuText{
+            cursor: pointer;
+            font-family: "RubikSemiBold";
+            font-weight: 400;
+            font-size: 16px;
+            letter-spacing: 0%;
+            @media screen and (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+
+        .menuText:hover {
+            font-weight: 800;
+        }
+    }
+
     .filterBtnContainer{
         @include flexRow;
         width: 100%;
@@ -89,36 +123,6 @@
                 font-weight: 600;
                 font-size: 16px;
                 line-height: 9.79px;
-            }
-        }
-
-        .categoryList{
-            color: #000;
-            background-color:#F4F2F2;
-            width: 100%;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: center;
-            padding: 10px 0 0 0;
-
-            @media screen and (max-width: 768px) {
-                font-size: 14px;
-            }
-            .menuText{
-                cursor: pointer;
-                font-family: "RubikSemiBold";
-                font-weight: 400;
-                font-size: 16px;
-                letter-spacing: 0%;
-                @media screen and (max-width: 768px) {
-                    font-size: 14px;
-                }
-            }
-
-            .menuText:hover {
-                font-weight: 800;
             }
         }
     }
