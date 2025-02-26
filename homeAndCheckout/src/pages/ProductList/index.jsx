@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import productBanner from "../../assets/images/productBanner.png";
 import styles from "./styles.module.scss";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import FilterComponent from "../../components/FilterComponent";
-import NewDropCard from "../../components/NewDropCard"
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Drawer from '@mui/material/Drawer';
 import CloseIcon from '@mui/icons-material/Close';
+import { getProductList } from "../../api/product";
+import useProductStore from "../../store/productList";
+import ProductListCard from "../../components/ProductListCard";
 
 export default function ProductList(){
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const setProductList = useProductStore(state => state.setProductList);
     const [category, setCategory] = useState("Life Style");
     const [showMenu, setShowMenu] = useState(false);
     const [filter, setFilter] = useState({color: "", size: "", categories: [], gender: [], price: ""})
     const [filterDrawer, setFilterDrawer] = useState(false);
+
+    useEffect(() => {
+        getProductList().then((res) => {
+            setProductList(res)
+        });
+    },[])
 
     const handleCateogry = () => {  
         setShowMenu(prev => !prev);
@@ -51,20 +60,8 @@ export default function ProductList(){
             </div>
 
             <div className={styles.filterBtnContainer}>
-                {isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
                 {isMobile && <button onClick={handleFilter} className={styles.categoryBtn}>Filter <FilterListIcon /></button>}
-            </div>
-
-            <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>                    
-                {showMenu && isMobile &&
-                    <div className={styles.categoryList}>
-                        <div style={{width:"100%", textAlign:"center"}}>
-                            {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
-                                <Typography onClick={() => handleCateogrySelection(item)} className={styles.menuText} style={(category === item) ? {fontWeight: "800"}: {}}> {item}<hr /></Typography>                                
-                            ))}
-                        </div>
-                    </div>
-                }
+                {isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
             </div>
 
             <div className={styles.catergoryContainer}>
@@ -73,7 +70,7 @@ export default function ProductList(){
                 <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>
                     {!isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
                     
-                    {showMenu && !isMobile &&
+                    {showMenu &&
                         <div className={styles.categoryList}>
                             <div style={{width:"100%", textAlign:"center"}}>
                                 {["Life Style", "Sports", "Casuals", "Trending"].map((item) => (
@@ -90,7 +87,7 @@ export default function ProductList(){
                    {!isMobile && <FilterComponent filter={filter} setFilter={setFilter}/>}
                 </div>
                 <div className={styles.productContainer}>
-                    <NewDropCard />
+                    <ProductListCard />
                 </div>
             </div>
             
