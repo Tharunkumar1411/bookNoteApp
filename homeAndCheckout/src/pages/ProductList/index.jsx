@@ -60,8 +60,8 @@ export default function ProductList(){
             </div>
 
             <div className={styles.filterBtnContainer}>
-                {isMobile && <button onClick={handleFilter} className={styles.categoryBtn}>Filter <FilterListIcon /></button>}
                 {isMobile && <button onClick={handleCateogry} className={styles.categoryBtn}>{category} <KeyboardArrowDownIcon /></button>}
+                {isMobile && <button onClick={handleFilter} className={styles.categoryBtn}>Filter <FilterListIcon /></button>}
             </div>
 
             <div className={styles.catergoryContainer}>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../NewDropCard/styles.module.scss";
 import useProductStore from "../../store/productList";
-import { Typography } from "@mui/material";
+import { Pagination, Typography } from "@mui/material";
 import { ROUTES } from "../../router/routes";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../CustomButton";
@@ -37,10 +37,14 @@ const ProductListCard = () => {
                 ))}
             </div>
             
-            <div className={internalStyles.pagination}>
+            {/* <div className={internalStyles.pagination}>
                 <CustomButton children="PREVIOUS"  sx={{backgroundColor:"#fff", color: "#000", width:"fit-content", marginTop:"15px"}}/>
                 <CustomButton children="NEXT"  sx={{backgroundColor:"#fff", color: "#000", width:"fit-content", marginTop:"15px"}}/>
+            </div> */}
+            <div className={internalStyles.pagination}>
+                <Pagination count={1} variant="outlined" shape="rounded" />
             </div>
+
         </div>
           
     )
