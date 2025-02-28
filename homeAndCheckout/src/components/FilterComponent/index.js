@@ -56,7 +56,6 @@ const FilterComponent = ({filter, setFilter}) => {
     }
 
     const handleApply = () => {
-        console.log("check filter", filter)
     }
 
     return(
